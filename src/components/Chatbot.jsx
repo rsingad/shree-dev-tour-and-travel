@@ -7,7 +7,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 // --- CONFIGURATION ---
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
-const API_URL = import.meta.env.API_URL; 
+const API_URL = import.meta.env.VITE_API_URL; 
 const OWNER_NUMBER = "919460595989"; 
 
 const LANGUAGES = [
