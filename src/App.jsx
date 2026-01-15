@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import FutureHome from './components/FutureHome';
 import Packages from './components/Packages';
 import Preloader from './components/Preloader';
+import Chatbot from './components/Chatbot';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -47,6 +48,7 @@ function App() {
           </div>
 
           <Footer />
+          <Chatbot />
         </>
       )}
       

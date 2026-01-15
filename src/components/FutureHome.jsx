@@ -1,10 +1,20 @@
 import React, { useRef, useState, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Environment, ContactShadows, Grid, SpotLight } from '@react-three/drei';
+// OPTIMIZATION IMPORTS ADDED HERE
+import { 
+  OrbitControls, 
+  useGLTF, 
+  Environment, 
+  ContactShadows, 
+  Grid, 
+  SpotLight,
+  AdaptiveDpr, 
+  AdaptiveEvents 
+} from '@react-three/drei';
 import { Phone, MapPin, ChevronRight, Star, Shield, Clock, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
-import BookingWidget from './BookingWidget'; // Ensure file exists
+import BookingWidget from './BookingWidget';
 
 // --- 3D CAR MODEL ---
 const RealCarModel = () => {
@@ -38,9 +48,18 @@ const FutureHome = () => {
       {/* ================= SECTION 1: HERO (3D SHOWROOM) ================= */}
       <div className="relative h-[85vh] w-full overflow-hidden">
         
-        {/* 3D CANVAS */}
+        {/* 3D CANVAS - OPTIMIZED FOR MOBILE */}
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-          <Canvas camera={{ position: [3, 1.5, 5], fov: 50 }} shadows>
+          <Canvas 
+            camera={{ position: [3, 1.5, 5], fov: 50 }} 
+            shadows 
+            dpr={[1, 1.5]} // Performance: Limits resolution on high-end phones
+            performance={{ min: 0.5 }} // Performance: Lowers quality if lagging
+          >
+            {/* PERFORMANCE BOOSTERS */}
+            <AdaptiveDpr pixelated />
+            <AdaptiveEvents />
+
             <ambientLight intensity={0.5} />
             <Environment preset="city" />
             <SpotLight position={[0, 5, 0]} distance={10} angle={0.5} attenuation={5} anglePower={5} color="#fff" intensity={20} />
@@ -49,12 +68,14 @@ const FutureHome = () => {
               <RealCarModel />
             </Suspense>
 
-            <ContactShadows resolution={1024} scale={10} blur={1} opacity={0.6} far={1} color="#000" />
+            {/* frames={1} IS CRITICAL: Shadows calculate only once */}
+            <ContactShadows resolution={512} scale={10} blur={1} opacity={0.6} far={1} color="#000" frames={1} />
+            
             <Grid renderOrder={-1} position={[0, -0.01, 0]} infiniteGrid cellSize={0.6} sectionSize={3} fadeDistance={25} sectionColor="#4f46e5" cellColor="#334155" />
             <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} maxPolarAngle={Math.PI / 2.1} />
           </Canvas>
           
-          {/* Bottom Fade Overlay (Taaki search bar smooth lage) */}
+          {/* Bottom Fade Overlay */}
           <div className="absolute bottom-0 w-full h-48 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
         </div>
 
@@ -84,11 +105,10 @@ const FutureHome = () => {
 
       {/* ================= SECTION 2: BOOKING ENGINE (OVERLAPPING) ================= */}
       <div className="relative z-20 -mt-32 container mx-auto px-4">
-        {/* Booking Widget Import */}
         <BookingWidget />
       </div>
 
-      {/* ================= SECTION 3: TRUST STRIP (NEW) ================= */}
+      {/* ================= SECTION 3: TRUST STRIP ================= */}
       <div className="bg-slate-900 py-12 border-b border-slate-800">
         <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <StatItem number="500+" label="Premium Cars" />
@@ -127,8 +147,8 @@ const FutureHome = () => {
       {/* ================= SECTION 5: POPULAR DESTINATIONS ================= */}
       <div className="bg-slate-900 py-24 px-6 relative overflow-hidden">
         
-        {/* Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        {/* Background Glow (Optimized for Mobile Lag) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-blue-900/20 to-transparent pointer-events-none"></div>
 
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
