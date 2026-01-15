@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, User } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react'; // MessageCircle import kiya WhatsApp ke liye
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -21,20 +21,17 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Check if we are on Home Page (dark theme) or others (might need adjustment)
-    const isHome = location.pathname === '/';
-
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-white/5 py-3'
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen
+                    ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/5 py-3'
                     : 'bg-transparent py-5'
                 }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
 
                 {/* LOGO */}
-                <Link to="/" className="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                <Link to="/" className="text-2xl font-bold text-white tracking-tight flex items-center gap-2 z-50">
                     SHREE DEV <span className="text-blue-500">TRAVELS</span>
                 </Link>
 
@@ -42,9 +39,8 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center gap-8">
                     <NavLink to="/" text="Home" />
                     <NavLink to="/services" text="Fleet & Services" />
+                    <NavLink to="/packages" text="Tour Packages" />
                     <NavLink to="/contact" text="Contact" />
-          
-                    <NavLink to="/packages" text="Tour Packages" /> 
 
                     <a
                         href="tel:8890472581"
@@ -57,7 +53,7 @@ const Navbar = () => {
                 {/* MOBILE MENU BUTTON */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition"
+                    className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition z-50"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -68,23 +64,36 @@ const Navbar = () => {
                 {isOpen && (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
+                        animate={{ height: '100vh', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="md:hidden bg-slate-900 border-t border-white/10 overflow-hidden"
+                        className="fixed inset-0 top-0 left-0 w-full h-screen bg-slate-900 md:hidden flex flex-col pt-24 px-6 z-40"
                     >
-                        <div className="flex flex-col p-6 gap-4">
+                        <div className="flex flex-col gap-6">
                             <MobileNavLink to="/" text="Home" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/services" text="Our Fleet" onClick={() => setIsOpen(false)} />
+                            <MobileNavLink to="/packages" text="Tour Packages" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/contact" text="Contact Us" onClick={() => setIsOpen(false)} />
 
-                            <a
-                                // href="tel:8890472581"
-                                
-                                href="https://wa.me/918890472581"
-                                className="flex justify-center items-center gap-2 bg-blue-600 text-white py-3 rounded-xl font-bold mt-4"
-                            >
-                                <Phone size={20} /> Call Now
-                            </a>
+                            {/* Mobile Action Buttons */}
+                            <div className="flex flex-col gap-3 mt-8">
+                                {/* Call Button */}
+                                <a
+                                    href="tel:8890472581"
+                                    className="flex justify-center items-center gap-2 bg-blue-600 text-white py-3 rounded-xl font-bold active:scale-95 transition"
+                                >
+                                    <Phone size={20} /> Call Now
+                                </a>
+
+                                {/* WhatsApp Button */}
+                                <a
+                                    href="https://wa.me/918890472581"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex justify-center items-center gap-2 bg-green-600 text-white py-3 rounded-xl font-bold active:scale-95 transition"
+                                >
+                                    <MessageCircle size={20} /> WhatsApp
+                                </a>
+                            </div>
                         </div>
                     </motion.div>
                 )}
@@ -93,7 +102,7 @@ const Navbar = () => {
     );
 };
 
-// Sub-components for clean code
+// Sub-components
 const NavLink = ({ to, text }) => (
     <Link
         to={to}
@@ -108,7 +117,7 @@ const MobileNavLink = ({ to, text, onClick }) => (
     <Link
         to={to}
         onClick={onClick}
-        className="text-lg font-medium text-slate-300 hover:text-blue-400 block border-b border-white/5 pb-2"
+        className="text-2xl font-semibold text-slate-300 hover:text-blue-400 border-b border-white/10 pb-4"
     >
         {text}
     </Link>
