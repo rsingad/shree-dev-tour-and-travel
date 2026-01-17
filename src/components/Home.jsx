@@ -4,9 +4,11 @@ import { Phone, MapPin, Car, Star, Calendar, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Home = () => {
+  int a=10;
+  console.log(a);
   return (
     <div className="font-sans text-gray-900 bg-white">
-      <Helmet>
+      <Helmet>/* helmet use for search enginn optmisetion and keywords in react*/
         <title>Shree Dev Tour and Travel | Premium Taxi Service</title>
       </Helmet>
 
