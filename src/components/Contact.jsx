@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Phone, MapPin, Mail, Send, MessageCircle, Clock } from 'lucide-react';
+import { Phone, MapPin, Mail, Send, Clock, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
@@ -23,13 +23,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="font-sans text-slate-200 bg-slate-900 min-h-screen pt-20 selection:bg-blue-500/30">
+    <div className="font-sans text-slate-200 bg-slate-900 min-h-screen pt-20 selection:bg-blue-500/30 overflow-hidden">
+      
+      {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>Contact Support | Shree Dev Travels</title>
-        <meta name="description" content="Contact Shree Dev Tour and Travel Jaipur. Call 8890472581 for taxi booking." />
+        <title>Contact Shree Dev Travels | Taxi Booking in Jaipur & Jodhpur</title>
+        <meta name="description" content="Contact Shree Dev Tour and Travel for instant cab booking. 24/7 support for outstation taxis, Innova Crysta, and Rajasthan tour packages. Call 8890472581." />
+        <meta name="keywords" content="Contact travel agency Jaipur, cab booking Jodhpur, hire taxi Jaisalmer, Shree Dev Travels contact number, Rajasthan tour booking, Force Urbania booking" />
       </Helmet>
 
-      {/* --- PAGE HEADER --- */}
+      {/* --- PAGE HEADER (SEO H1) --- */}
       <div className="relative py-20 px-6 text-center overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -41,11 +44,12 @@ const Contact = () => {
           className="relative z-10"
         >
           <span className="text-blue-500 font-bold tracking-widest text-sm uppercase mb-2 block">
-            24/7 Support
+            24/7 Rajasthan Support
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Get in Touch</h1>
+          {/* H1 Tag for Google */}
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Our Travel Experts</h1>
           <p className="text-slate-400 max-w-xl mx-auto text-lg">
-            Plan your journey with us. Our support team is ready to assist you anytime.
+            Need an Innova for Jodhpur or a complete Rajasthan tour package? Our local experts are ready to assist you.
           </p>
         </motion.div>
       </div>
@@ -60,49 +64,50 @@ const Contact = () => {
           className="space-y-8"
         >
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Contact Information</h2>
-            <p className="text-slate-400">Direct lines for instant booking and support.</p>
+            <h2 className="text-3xl font-bold text-white mb-2">Direct Booking Lines</h2>
+            <p className="text-slate-400">Skip the middleman. Get the best per-km rates directly from the owner.</p>
           </div>
 
           <div className="space-y-6">
             <ContactItem 
               icon={<Phone className="text-blue-500" />}
-              title="Phone Number"
+              title="Call for Instant Booking"
               desc={<>
-                <a href="tel:8890472581" className="block font-bold text-white hover:text-blue-400 transition">+91 88904-72581</a>
+                <a href="tel:8890472581" className="block font-bold text-white hover:text-blue-400 transition text-lg">+91 88904-72581</a>
                 <a href="tel:8290071304" className="block font-bold text-slate-400 hover:text-blue-400 transition">+91 82900-71304</a>
               </>}
             />
             
             <ContactItem 
               icon={<MapPin className="text-blue-500" />}
-              title="Headquarters"
-              desc="Jaipur, Rajasthan, India (Service available Pan-India)"
+              title="Headquarters & Service Area"
+              desc="Based in Jaipur. Providing premium cabs across Jodhpur, Jaisalmer, Bikaner & Udaipur."
             />
 
             <ContactItem 
-              icon={<Mail className="text-blue-500" />}
-              title="Email Address"
-              desc={<a href="mailto:booking@shreedev.com" className="hover:text-blue-400 transition">booking@shreedev.com</a>}
+              icon={<ShieldCheck className="text-blue-500" />}
+              title="Verified Agency"
+              desc="Trusted by 50,000+ travelers for safe & sanitized outstation rides."
             />
 
             <ContactItem 
               icon={<Clock className="text-blue-500" />}
               title="Operating Hours"
-              desc="24 Hours / 7 Days a Week"
+              desc="24 Hours / 7 Days a Week - Always Ready to Drive."
             />
           </div>
 
-          {/* Google Map Embed (Dark Border) */}
+          {/* Valid Google Map Embed (Local SEO Booster) */}
           <div className="w-full h-64 bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-slate-700 mt-8 relative group">
             <iframe 
-              title="Jaipur Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.3825624477!2d75.65046970649679!3d26.88544791796718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1705260000000!5m2!1sen!2sin" 
+              title="Shree Dev Travels Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.3825624707!2d75.65046970649679!3d26.88544791796718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
-              style={{ border: 0, filter: 'grayscale(100%) invert(90%)' }} // Map ko Dark Mode jaisa banata hai
+              style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(80%)' }} 
               allowFullScreen="" 
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
               className="opacity-70 group-hover:opacity-100 transition-opacity duration-500"
             ></iframe>
           </div>
@@ -116,8 +121,8 @@ const Contact = () => {
           className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-slate-700"
         >
           <div className="mb-8">
-            <h3 className="text-2xl font-bold text-white">Send Enquiry</h3>
-            <p className="text-sm text-slate-400 mt-1">Fill the form and we will connect via WhatsApp instantly.</p>
+            <h3 className="text-2xl font-bold text-white">Send WhatsApp Enquiry</h3>
+            <p className="text-sm text-slate-400 mt-1">Fill the details below to get instant quotes for Innova, Urbania, or Tour Packages.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -133,7 +138,7 @@ const Contact = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Phone</label>
+                <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Phone Number</label>
                 <input 
                   type="tel" name="phone" required
                   className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600"
@@ -144,28 +149,29 @@ const Contact = () => {
               <div>
                 <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Travel Date</label>
                 <input 
-                  type="date" name="date"
-                  className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-slate-400 outline-none transition"
+                  type="date" name="date" required
+                  className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-slate-200 outline-none transition"
+                  style={{ colorScheme: "dark" }}
                   onChange={handleChange}
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Message</label>
+              <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Your Requirement</label>
               <textarea 
-                name="message" rows="4"
+                name="message" rows="4" required
                 className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600"
-                placeholder="I want to book Innova for 3 days trip..."
+                placeholder="E.g., I want to book an Innova Crysta for a 3-day Jaisalmer trip..."
                 onChange={handleChange}
               ></textarea>
             </div>
 
             <button 
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition flex items-center justify-center gap-2 hover:-translate-y-1 transform"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition flex items-center justify-center gap-2 hover:-translate-y-1 transform active:scale-95"
             >
-              <Send size={20} /> Send Enquiry via WhatsApp
+              <Send size={20} /> Get Price on WhatsApp
             </button>
           </form>
         </motion.div>
@@ -182,7 +188,7 @@ const ContactItem = ({ icon, title, desc }) => (
       {icon}
     </div>
     <div>
-      <h4 className="text-lg font-bold text-white">{title}</h4>
+      <h3 className="text-lg font-bold text-white">{title}</h3>
       <div className="text-slate-400 text-sm mt-1">{desc}</div>
     </div>
   </div>

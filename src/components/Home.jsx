@@ -4,12 +4,14 @@ import { Phone, MapPin, Car, Star, Calendar, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Home = () => {
-  int a=10;
-  console.log(a);
+  
   return (
     <div className="font-sans text-gray-900 bg-white">
-      <Helmet>/* helmet use for search enginn optmisetion and keywords in react*/
-        <title>Shree Dev Tour and Travel | Premium Taxi Service</title>
+      {/* --- ADVANCED SEO HELMET --- */}
+      <Helmet>
+        <title>Best Taxi Service in Jaipur | Cabs for Jodhpur & Jaisalmer - Shree Dev Travels</title>
+        <meta name="description" content="Looking for reliable outstation cabs? Book affordable Innova Crysta, Etios, and Rajasthan tour packages for Jaipur, Jodhpur, Jaisalmer & Bikaner with Shree Dev Tour and Travel." />
+        <meta name="keywords" content="Jaipur to Jaisalmer taxi, Jodhpur cab booking, Bikaner sightseeing taxi, Innova Crysta rental Jaipur, alternative to expensive cabs Rajasthan, best travel agency in Jaipur, hire tempo traveller" />
       </Helmet>
 
       {/* --- NEW MODERN HERO SECTION --- */}
@@ -18,7 +20,7 @@ const Home = () => {
         {/* Full Screen Background Image */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1590766940555-7f239b49b6f4?q=80&w=2070&auto=format&fit=crop")' }} // Car Image
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1590766940555-7f239b49b6f4?q=80&w=2070&auto=format&fit=crop")' }} 
         >
           {/* Black Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
@@ -27,7 +29,7 @@ const Home = () => {
         {/* Content Container */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center pt-20">
           
-          {/* Left Side: Big Text */}
+          {/* Left Side: Big Text & SEO Copy */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -35,26 +37,28 @@ const Home = () => {
             className="text-white space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-sm font-medium text-yellow-300">
-              <Star size={14} fill="currentColor" /> #1 Travel Agency in Jaipur
+              <Star size={14} fill="currentColor" /> #1 Top-Rated Travel Agency in Rajasthan
             </div>
             
+            {/* SEO H1 Tag: The most important text for Google */}
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-              Explore India <br />
+              Premium Taxi in <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-                In Luxury
+                Jaipur & Beyond
               </span>
             </h1>
             
+            {/* Sales Copy with Keywords embedded naturally */}
             <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
-              Premium Innova, Etios & Tempo Travellers for Outstation, Airport Pickup & Rajasthan Tours. 
+              Trusted alternative to expensive aggregators. Book affordable and sanitized <strong>Innova Crysta, Etios & Tempo Travellers</strong> for outstation trips, Airport transfers, and custom tour packages to <strong>Jodhpur, Jaisalmer & Bikaner</strong>. 
             </p>
 
             <div className="flex gap-4 pt-4">
-              <a href="tel:8890472581" className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold text-lg transition flex items-center gap-2">
-                Book a Ride <ArrowRight size={20}/>
+              <a href="tel:8890472581" className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold text-lg transition flex items-center gap-2 shadow-lg shadow-yellow-500/30">
+                Book Your Ride <ArrowRight size={20}/>
               </a>
               <a href="/services" className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg transition">
-                View Fleet
+                Explore Fleet
               </a>
             </div>
           </motion.div>
@@ -66,14 +70,15 @@ const Home = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="hidden lg:block bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-2xl text-white max-w-md ml-auto"
           >
-            <h3 className="text-2xl font-bold mb-6">Quick Enquiry</h3>
+            {/* H2 tag helps structure the page for SEO */}
+            <h2 className="text-2xl font-bold mb-6">Instant Cab Enquiry</h2>
             
             <div className="space-y-4">
               <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center gap-3">
                 <MapPin className="text-yellow-400" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase">Pickup Location</p>
-                  <p className="font-semibold">Jaipur, Rajasthan</p>
+                  <p className="font-semibold">Jaipur / Airport / Hotel</p>
                 </div>
               </div>
 
@@ -81,7 +86,7 @@ const Home = () => {
                 <MapPin className="text-yellow-400" />
                 <div>
                   <p className="text-xs text-gray-400 uppercase">Drop Location</p>
-                  <p className="font-semibold">Anywhere in India</p>
+                  <p className="font-semibold">Jodhpur, Jaisalmer & More</p>
                 </div>
               </div>
 
@@ -93,8 +98,9 @@ const Home = () => {
                 </div>
               </div>
 
-              <a href="https://wa.me/918890472581" className="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-center transition mt-4">
-                Chat on WhatsApp
+              {/* Call to Action optimized for conversion */}
+              <a href="https://wa.me/918890472581?text=Hi,%20I%20want%20to%20book%20a%20cab%20from%20your%20website" className="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-center transition mt-4 shadow-lg shadow-green-500/30">
+                Get Best Price on WhatsApp
               </a>
             </div>
           </motion.div>
@@ -102,23 +108,23 @@ const Home = () => {
         </div>
       </div>
 
-      {/* --- SERVICES STRIP (Clean Look) --- */}
+      {/* --- SERVICES STRIP (SEO Optimized Text) --- */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard 
               icon={<Car size={40} className="text-yellow-600"/>} 
-              title="Premium Fleet" 
-              desc="Clean, Sanitzed Innova Crysta & Etios." 
-            />
-            <FeatureCard 
-              icon={<Phone size={40} className="text-yellow-600"/>} 
-              title="24/7 Support" 
-              desc="Always available on 88904-72581." 
+              title="Luxury & Budget Fleet" 
+              desc="From local sedans to outstation Innova Crysta at the lowest rates per km." 
             />
             <FeatureCard 
               icon={<Star size={40} className="text-yellow-600"/>} 
-              title="Top Rated Drivers" 
-              desc="Experienced, polite and safe drivers." 
+              title="Local Expert Drivers" 
+              desc="Safe drivers who double as local guides for your Rajasthan sightseeing." 
+            />
+            <FeatureCard 
+              icon={<Phone size={40} className="text-yellow-600"/>} 
+              title="24/7 Booking Support" 
+              desc="Directly connect with Raju Gujar. No hidden fees, instant confirmation." 
             />
         </div>
       </div>

@@ -6,17 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Packages = () => {
   return (
     <div className="bg-slate-900 min-h-screen text-white pt-20 font-sans selection:bg-blue-500/30">
+      
+      {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>Premium Tour Packages | Rajasthan & India</title>
+        <title>Rajasthan Tour Packages: Jodhpur, Jaisalmer Safari & Jaipur</title>
+        <meta name="description" content="Book affordable Rajasthan tour packages. Enjoy Jaisalmer desert safari, camel rides, Jodhpur city tours (Mehrangarh, Umaid Bhawan), and Jaipur sightseeing." />
+        <meta name="keywords" content="Jodhpur tour package, Jaisalmer desert safari, Camel ride Jaisalmer, Mehrangarh Fort taxi, Umaid Bhawan tour, Rajasthan itineraries, hire cab for Rajasthan tour, Sam Sand Dunes camp" />
       </Helmet>
 
-      {/* --- HERO HEADER --- */}
+      {/* --- HERO HEADER (SEO Optimized H1) --- */}
       <div className="bg-slate-950 py-20 px-6 text-center border-b border-slate-800">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Curated <span className="text-blue-500">Experiences</span>
+          Rajasthan <span className="text-blue-500">Tour Packages</span>
         </h1>
         <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-          Don't just travel, explore. Select from our expertly crafted itineraries designed for comfort and discovery.
+          Experience the royalty of Rajasthan. From the blue streets of Jodhpur to the golden sand dunes of Jaisalmer, explore our best-selling itineraries.
         </p>
       </div>
 
@@ -24,57 +28,58 @@ const Packages = () => {
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           
+          {/* PACKAGE 1: JAIPUR */}
           <PackageCard 
             title="Jaipur Royal Darshan"
             duration="2 Days / 1 Night"
             price="₹4,500"
             image="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop"
-            locations={['Amber Fort', 'Hawa Mahal', 'City Palace', 'Nahargarh']}
+            locations={['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jal Mahal']}
             itinerary={[
-              { day: 'Day 1', plan: 'Pickup from Airport/Station. Check-in. Visit City Palace, Jantar Mantar & Hawa Mahal. Evening shopping at Johri Bazar.' },
-              { day: 'Day 2', plan: 'Morning Elephant ride at Amber Fort. Visit Jal Mahal & Nahargarh Fort for sunset. Drop at Airport.' }
+              { day: 'Day 1', plan: 'Pickup from Jaipur Airport/Station. Check-in. Visit City Palace, Jantar Mantar & Hawa Mahal. Evening shopping at Johri Bazar.' },
+              { day: 'Day 2', plan: 'Morning visit to Amber Fort. Stop at Jal Mahal for photography & Nahargarh Fort for sunset views. Drop at Airport/Station.' }
             ]}
           />
 
+          {/* PACKAGE 2: JODHPUR (COMPETITOR BAIT 🎯) */}
           <PackageCard 
-            title="Udaipur Lake Fantasy"
+            title="Jodhpur Heritage & City Tour"
+            duration="2 Days / 1 Night"
+            price="₹5,500"
+            image="https://images.unsplash.com/photo-1599557404456-11f879bfac12?q=80&w=1935&auto=format&fit=crop"
+            locations={['Mehrangarh Fort', 'Umaid Bhawan', 'Jaswant Thada', 'Clock Tower']}
+            itinerary={[
+              { day: 'Day 1', plan: 'Arrival in Jodhpur. Hotel Check-in. Visit the magnificent Umaid Bhawan Palace Museum and Toorji Ka Jhalra (Stepwell).' },
+              { day: 'Day 2', plan: 'Explore the grand Mehrangarh Fort and Jaswant Thada. Enjoy local street food and shopping at Ghanta Ghar (Clock Tower). Evening Drop-off.' }
+            ]}
+          />
+
+          {/* PACKAGE 3: JAISALMER (HIGH MARGIN & HIGH SEARCH VOL 🎯) */}
+          <PackageCard 
+            title="Jaisalmer Desert Safari & Camp"
             duration="3 Days / 2 Nights"
-            price="₹12,000"
-            image="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?q=80&w=1974&auto=format&fit=crop"
-            locations={['City Palace', 'Lake Pichola', 'Fateh Sagar', 'Sajjangarh']}
-            itinerary={[
-              { day: 'Day 1', plan: 'Departure from Jaipur (6 hrs drive). Hotel Check-in. Evening Boat ride at Lake Pichola.' },
-              { day: 'Day 2', plan: 'Full day sightseeing: City Palace, Jagdish Temple, Saheliyon Ki Bari. Sunset at Monsoon Palace.' },
-              { day: 'Day 3', plan: 'Visit Fateh Sagar Lake and drive back to Jaipur.' }
-            ]}
-          />
-
-          <PackageCard 
-            title="Golden Triangle (Delhi-Agra-Jaipur)"
-            duration="5 Days / 4 Nights"
-            price="₹25,000"
-            image="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2071&auto=format&fit=crop"
-            locations={['Taj Mahal', 'India Gate', 'Amber Fort', 'Red Fort']}
-            itinerary={[
-              { day: 'Day 1', plan: 'Pickup in Delhi. Sightseeing (India Gate, Qutub Minar). Night stay in Delhi.' },
-              { day: 'Day 2', plan: 'Drive to Agra. Visit Taj Mahal & Agra Fort. Night stay in Agra.' },
-              { day: 'Day 3', plan: 'Drive to Jaipur via Fatehpur Sikri. Evening at Chokhi Dhani.' },
-              { day: 'Day 4', plan: 'Jaipur Sightseeing (Amber Fort, City Palace). Night stay in Jaipur.' },
-              { day: 'Day 5', plan: 'Shopping and Drop back to Delhi.' }
-            ]}
-          />
-
-          <PackageCard 
-            title="Jaisalmer Desert Safari"
-            duration="4 Days / 3 Nights"
-            price="₹18,500"
+            price="₹12,500"
             image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1886&auto=format&fit=crop"
-            locations={['Golden Fort', 'Sam Sand Dunes', 'Gadisar Lake', 'Patwon Ki Haveli']}
+            locations={['Sam Sand Dunes', 'Camel Ride', 'Jeep Safari', 'Golden Fort']}
             itinerary={[
-              { day: 'Day 1', plan: 'Drive to Jaisalmer. Hotel Check-in. Relax.' },
-              { day: 'Day 2', plan: 'Jaisalmer Fort & City Tour. Gadisar Lake boating.' },
-              { day: 'Day 3', plan: 'Desert Camp Stay. Camel Ride, Jeep Safari, Cultural Dance & Dinner on Dunes.' },
-              { day: 'Day 4', plan: 'Breakfast at Camp and drive back.' }
+              { day: 'Day 1', plan: 'Pickup in Jaisalmer. Hotel Check-in. Visit the living Jaisalmer Fort (Golden Fort) and beautiful Patwon Ki Haveli. Evening at Gadisar Lake.' },
+              { day: 'Day 2', plan: 'Move to Sam Sand Dunes. Experience thrilling Jeep Safari, evening Camel Ride, Rajasthani cultural folk dance, and dinner. Night stay in Swiss Tents.' },
+              { day: 'Day 3', plan: 'Morning breakfast at the desert camp and transfer to Railway Station/Airport.' }
+            ]}
+          />
+
+          {/* PACKAGE 4: THE ULTIMATE COMBO */}
+          <PackageCard 
+            title="The Ultimate Rajasthan (Jaipur-Jodhpur-Jaisalmer)"
+            duration="6 Days / 5 Nights"
+            price="₹28,000"
+            image="https://images.unsplash.com/photo-1604312591603-f01e18cc8564?q=80&w=2072&auto=format&fit=crop"
+            locations={['Jaipur', 'Jodhpur', 'Jaisalmer Camp', 'Sightseeing']}
+            itinerary={[
+              { day: 'Day 1 & 2', plan: 'Jaipur Arrival. Explore Amber Fort, Hawa Mahal, City Palace, and Chokhi Dhani.' },
+              { day: 'Day 3', plan: 'Drive to Jodhpur in Innova/Urbania. Visit Mehrangarh Fort & Umaid Bhawan. Night stay in Jodhpur.' },
+              { day: 'Day 4 & 5', plan: 'Drive to Jaisalmer. City tour on Day 4. Day 5 dedicated to Sam Sand Dunes (Camel Ride & Desert Camp).' },
+              { day: 'Day 6', plan: 'Breakfast and drop-off for your return journey.' }
             ]}
           />
 
@@ -97,9 +102,11 @@ const PackageCard = ({ title, duration, price, image, locations, itinerary }) =>
     >
       {/* Image Header */}
       <div className="h-64 relative">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        {/* SEO Alt Tag updated dynamically */}
+        <img src={image} alt={`${title} Booking Rajasthan`} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
         <div className="absolute bottom-4 left-4">
+          {/* Main Title changed to H2 for SEO Hierarchy */}
           <h2 className="text-2xl font-bold text-white">{title}</h2>
           <div className="flex items-center gap-4 text-sm text-slate-300 mt-1">
             <span className="flex items-center gap-1"><Clock size={14} className="text-blue-500"/> {duration}</span>
@@ -152,7 +159,8 @@ const PackageCard = ({ title, duration, price, image, locations, itinerary }) =>
                       {index !== itinerary.length - 1 && <div className="w-0.5 h-full bg-slate-700 my-1"></div>}
                     </div>
                     <div>
-                      <h4 className="font-bold text-white text-sm">{item.day}</h4>
+                      {/* Sub-headings changed to H3 for SEO */}
+                      <h3 className="font-bold text-white text-sm">{item.day}</h3>
                       <p className="text-slate-400 text-sm leading-relaxed">{item.plan}</p>
                     </div>
                   </div>
@@ -164,7 +172,7 @@ const PackageCard = ({ title, duration, price, image, locations, itinerary }) =>
 
         {/* Book Button */}
         <a 
-          href={`https://wa.me/918890472581?text=I am interested in ${title} Package`}
+          href={`https://wa.me/918890472581?text=Hi,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(title)}%20Package.`}
           className="block w-full bg-blue-600 hover:bg-blue-500 text-white text-center py-4 rounded-xl font-bold transition shadow-lg shadow-blue-600/20"
         >
           Book This Package
