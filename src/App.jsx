@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async'; 
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'; 
@@ -106,6 +107,7 @@ function App() {
 
           <Footer />
           <Chatbot />
+          <SpeedInsights />
         </>
       )}
       
