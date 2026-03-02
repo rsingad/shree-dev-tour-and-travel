@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react'; 
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -24,8 +24,8 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen
-                    ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/5 py-3'
-                    : 'bg-transparent py-5'
+                ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/5 py-3'
+                : 'bg-transparent py-5'
                 }`}
             aria-label="Main Navigation"
         >
@@ -33,12 +33,12 @@ const Navbar = () => {
 
                 {/* --- LOGO WOLF + TEXT (SEO Optimized Alt Tag) --- */}
                 <Link to="/" className="text-2xl font-bold text-white tracking-tight flex items-center gap-3 z-50" aria-label="Shree Dev Travels Home">
-                    <img 
-                        src="/wolf-logo.png" 
-                        alt="Shree Dev Tour and Travel - Best Taxi in Jodhpur" 
+                    <img
+                        src="/wolf-logo.png"
+                        alt="Shree Dev Tour and Travel - Best Taxi in Jodhpur"
                         className="w-10 h-10 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)] border border-blue-500/40"
                     />
-                    <span>SHREE DEV <span className="text-blue-500">TRAVELS</span></span>
+                    <span>SHREE DEV <span className="text-blue-500">TRAVELS JODHPUR</span></span>
                 </Link>
 
                 {/* DESKTOP MENU (SEO Optimized Labels) */}
@@ -49,9 +49,9 @@ const Navbar = () => {
                     <NavLink to="/contact" text="Contact" />
                     <NavLink to="/about" text="About" />
                     <NavLink to="/privacy-policy" text="Privacy" />
-                    <NavLink to="/terms" text="Terms" /> 
-                    <NavLink to="/faq" text="FAQ" /> 
-                    
+                    <NavLink to="/terms" text="Terms" />
+                    <NavLink to="/faq" text="FAQ" />
+
 
                     <a
                         href="tel:8890472581"
@@ -86,6 +86,10 @@ const Navbar = () => {
                             <MobileNavLink to="/services" text="Premium Cabs" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/packages" text="Tour Packages" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/contact" text="Contact Support" onClick={() => setIsOpen(false)} />
+                            <MobileNavLink to="/about" text="About" onClick={() => setIsOpen(false)}/>
+                            <MobileNavLink to="/privacy-policy" text="Privacy" onClick={() => setIsOpen(false)}/>
+                            <MobileNavLink to="/terms" text="Terms" onClick={() => setIsOpen(false)}/>
+                            <MobileNavLink to="/faq" text="FAQ" onClick={() => setIsOpen(false)}/>
 
                             {/* Mobile Action Buttons (Optimized for Conversions) */}
                             <div className="flex flex-col gap-3 mt-8">
