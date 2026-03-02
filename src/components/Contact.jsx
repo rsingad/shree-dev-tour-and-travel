@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, MapPin, Mail, Send, Clock, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
-  // --- FORM LOGIC (Send to WhatsApp) ---
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -12,14 +11,39 @@ const Contact = () => {
     message: ''
   });
 
+  // Unique IDs for Form Accessibility (SEO Hack)
+  const nameId = useId();
+  const phoneId = useId();
+  const dateId = useId();
+  const msgId = useId();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const text = `*New Booking Enquiry*%0A-----------------------%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Message:* ${formData.message}`;
+    const text = `*New Booking Enquiry - shreedevjodhpur.in*%0A-----------------------%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Travel Date:* ${formData.date}%0A*Requirement:* ${formData.message}`;
     window.open(`https://wa.me/918890472581?text=${text}`, '_blank');
+  };
+
+  // Contact Page Specific Schema
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Shree Dev Travels Jodhpur",
+      "image": "https://shreedevjodhpur.in/wolf-logo.png",
+      "telephone": "+918890472581",
+      "email": "booking@shreedev.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jodhpur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      }
+    }
   };
 
   return (
@@ -27,13 +51,16 @@ const Contact = () => {
       
       {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>Contact Shree Dev Travels | Taxi Booking in Jaipur & Jodhpur</title>
-        <meta name="description" content="Contact Shree Dev Tour and Travel for instant cab booking. 24/7 support for outstation taxis, Innova Crysta, and Rajasthan tour packages. Call 8890472581." />
-        <meta name="keywords" content="Contact travel agency Jaipur, cab booking Jodhpur, hire taxi Jaisalmer, Shree Dev Travels contact number, Rajasthan tour booking, Force Urbania booking" />
+        <title>Contact Shree Dev Travels | Cab Booking in Jodhpur & Rajasthan</title>
+        <meta name="description" content="Contact Shree Dev Tour and Travel Jodhpur for instant cab booking. 24/7 support for outstation taxis, Innova Crysta hire, and Rajasthan tour packages." />
+        <meta name="keywords" content="Contact travel agency Jodhpur, cab booking Jodhpur, hire taxi Jaisalmer, Shree Dev Travels contact number, Rajasthan tour booking, Force Urbania booking Jodhpur" />
+        <script type="application/ld+json">
+          {JSON.stringify(contactSchema)}
+        </script>
       </Helmet>
 
       {/* --- PAGE HEADER (SEO H1) --- */}
-      <div className="relative py-20 px-6 text-center overflow-hidden">
+      <header className="relative py-20 px-6 text-center overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
         
@@ -44,24 +71,24 @@ const Contact = () => {
           className="relative z-10"
         >
           <span className="text-blue-500 font-bold tracking-widest text-sm uppercase mb-2 block">
-            24/7 Rajasthan Support
+            24/7 Cab Booking Support
           </span>
-          {/* H1 Tag for Google */}
+          {/* H1 Tag for Google Local SEO */}
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Our Travel Experts</h1>
           <p className="text-slate-400 max-w-xl mx-auto text-lg">
-            Need an Innova for Jodhpur or a complete Rajasthan tour package? Our local experts are ready to assist you.
+            Need an <strong>Innova Crysta</strong> for Jodhpur or a complete Rajasthan tour package? Our local experts are ready to assist you.
           </p>
         </motion.div>
-      </div>
+      </header>
 
-      <div className="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <main className="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
         
-        {/* --- LEFT SIDE: CONTACT INFO --- */}
-        <motion.div 
+        {/* --- LEFT SIDE: CONTACT INFO (Wrapped in Address tag for SEO) --- */}
+        <motion.address 
           initial={{ x: -30, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="space-y-8"
+          className="space-y-8 not-italic"
         >
           <div>
             <h2 className="text-3xl font-bold text-white mb-2">Direct Booking Lines</h2>
@@ -70,38 +97,38 @@ const Contact = () => {
 
           <div className="space-y-6">
             <ContactItem 
-              icon={<Phone className="text-blue-500" />}
+              icon={<Phone className="text-blue-500" aria-hidden="true" />}
               title="Call for Instant Booking"
               desc={<>
-                <a href="tel:8890472581" className="block font-bold text-white hover:text-blue-400 transition text-lg">+91 88904-72581</a>
-                <a href="tel:8290071304" className="block font-bold text-slate-400 hover:text-blue-400 transition">+91 82900-71304</a>
+                <a href="tel:8890472581" title="Call Shree Dev Travels" className="block font-bold text-white hover:text-blue-400 transition text-lg">+91 88904-72581</a>
+                <a href="tel:8290071304" title="Alternative Booking Number" className="block font-bold text-slate-400 hover:text-blue-400 transition">+91 82900-71304</a>
               </>}
             />
             
             <ContactItem 
-              icon={<MapPin className="text-blue-500" />}
+              icon={<MapPin className="text-blue-500" aria-hidden="true" />}
               title="Headquarters & Service Area"
-              desc="Based in Jaipur. Providing premium cabs across Jodhpur, Jaisalmer, Bikaner & Udaipur."
+              desc="Based in Jodhpur & Jaipur. Providing premium cabs across Rajasthan including Jaisalmer & Bikaner."
             />
 
             <ContactItem 
-              icon={<ShieldCheck className="text-blue-500" />}
+              icon={<ShieldCheck className="text-blue-500" aria-hidden="true" />}
               title="Verified Agency"
-              desc="Trusted by 50,000+ travelers for safe & sanitized outstation rides."
+              desc="Trusted by 50,000+ travelers for safe, sanitized, and GPS-enabled outstation rides."
             />
 
             <ContactItem 
-              icon={<Clock className="text-blue-500" />}
+              icon={<Clock className="text-blue-500" aria-hidden="true" />}
               title="Operating Hours"
               desc="24 Hours / 7 Days a Week - Always Ready to Drive."
             />
           </div>
 
-          {/* Valid Google Map Embed (Local SEO Booster) */}
-          <div className="w-full h-64 bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-slate-700 mt-8 relative group">
+          {/* Valid Google Map Embed (Local SEO Booster - Real Jodhpur Map Query) */}
+          <div className="w-full h-64 bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-slate-700 mt-8 relative group" aria-label="Location Map">
             <iframe 
-              title="Shree Dev Travels Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.3825624707!2d75.65046970649679!3d26.88544791796718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              title="Shree Dev Travels Jodhpur Location"
+              src="https://maps.google.com/maps?q=Jodhpur,+Rajasthan&t=&z=13&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(80%)' }} 
@@ -111,14 +138,15 @@ const Contact = () => {
               className="opacity-70 group-hover:opacity-100 transition-opacity duration-500"
             ></iframe>
           </div>
-        </motion.div>
+        </motion.address>
 
         {/* --- RIGHT SIDE: BOOKING FORM --- */}
-        <motion.div 
+        <motion.section 
           initial={{ x: 30, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-slate-700"
+          aria-label="Contact Form"
         >
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-white">Send WhatsApp Enquiry</h3>
@@ -127,10 +155,11 @@ const Contact = () => {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Your Name</label>
+              <label htmlFor={nameId} className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2 cursor-pointer">Your Name</label>
               <input 
+                id={nameId}
                 type="text" name="name" required
-                className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600"
+                className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600 shadow-inner"
                 placeholder="Ex. Rahul Sharma"
                 onChange={handleChange}
               />
@@ -138,19 +167,21 @@ const Contact = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Phone Number</label>
+                <label htmlFor={phoneId} className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2 cursor-pointer">Phone Number</label>
                 <input 
+                  id={phoneId}
                   type="tel" name="phone" required
-                  className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600"
+                  className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600 shadow-inner"
                   placeholder="9876543210"
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Travel Date</label>
+                <label htmlFor={dateId} className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2 cursor-pointer">Travel Date</label>
                 <input 
+                  id={dateId}
                   type="date" name="date" required
-                  className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-slate-200 outline-none transition"
+                  className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-slate-200 outline-none transition shadow-inner cursor-pointer"
                   style={{ colorScheme: "dark" }}
                   onChange={handleChange}
                 />
@@ -158,10 +189,11 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Your Requirement</label>
+              <label htmlFor={msgId} className="block text-xs font-bold text-blue-400 uppercase tracking-widest mb-2 cursor-pointer">Your Requirement</label>
               <textarea 
+                id={msgId}
                 name="message" rows="4" required
-                className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600"
+                className="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 text-white outline-none transition placeholder-slate-600 shadow-inner"
                 placeholder="E.g., I want to book an Innova Crysta for a 3-day Jaisalmer trip..."
                 onChange={handleChange}
               ></textarea>
@@ -169,14 +201,15 @@ const Contact = () => {
 
             <button 
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/20 transition flex items-center justify-center gap-2 hover:-translate-y-1 transform active:scale-95"
+              aria-label="Send Enquiry to WhatsApp"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.5)] transition flex items-center justify-center gap-2 hover:-translate-y-1 transform active:scale-95"
             >
-              <Send size={20} /> Get Price on WhatsApp
+              <Send size={20} aria-hidden="true" /> Get Price on WhatsApp
             </button>
           </form>
-        </motion.div>
+        </motion.section>
 
-      </div>
+      </main>
     </div>
   );
 };

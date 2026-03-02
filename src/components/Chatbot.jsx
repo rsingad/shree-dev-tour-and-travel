@@ -18,20 +18,25 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const { transcript, listening, resetTranscript } = useSpeechRecognition();
+  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
   useEffect(() => { if (transcript) setInput(transcript); }, [transcript]);
 
   const speak = (text) => {
-    const synth = window.speechSynthesis;
-    const utterance = new SpeechSynthesisUtterance(text.replace(/[*#]/g, ""));
-    utterance.lang = lang;
-    synth.speak(utterance);
+    // Safety check for browser support
+    if ('speechSynthesis' in window) {
+        const synth = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(text.replace(/[*#]/g, ""));
+        utterance.lang = lang;
+        synth.speak(utterance);
+    }
   };
 
   const handleSend = (textOverride) => {
-    const messageText = textOverride || input;
+    // If textOverride is provided (from suggestion buttons), use it, otherwise use input
+    const messageText = typeof textOverride === 'string' ? textOverride : input;
+    
     if (!messageText.trim()) return;
     
     const userMsg = { id: Date.now(), text: messageText, sender: 'user' };
@@ -45,15 +50,17 @@ const Chatbot = () => {
   const getGroqResponse = async (chatHistory) => {
     setIsTyping(true);
     try {
+      if (!GROQ_API_KEY) throw new Error("API Key Missing");
+
       const systemPrompt = `
-        You are 'Raju', the legendary and super-smart owner of 'Shree Dev Tour and Travel' in Rajasthan.
+        You are 'Raju', the smart and friendly owner of 'Shree Dev Tour and Travel' in Rajasthan.
         
-        BEHAVIOR:
-        1. YOU ARE HUMAN: Talk like a local expert. Use 'Hukum', 'Bhaiya', 'Padharo Mare Desh'.
-        2. BE PROACTIVE: If they say 'Jodhpur', tell them about the 'Blue City' magic or 'Mishrilal ki Lassi'.
-        3. SALES GENIUS: If they look for a car, explain why Innova is better for family comfort. 
-        4. LEAD CAPTURE: You MUST find out: Name, No. of People, Travel Dates, and Budget level.
-        5. NO ROBOT TALK: Keep it short (2 sentences), very friendly, and always end with a question to keep them talking.
+        CRITICAL RULES FOR BEHAVIOR (MUST FOLLOW):
+        1. STRICT CONTEXT LOCK: If the user asks about a specific place (e.g., Bikaner, Mount Abu, Jodhpur), ONLY talk about THAT place. Do NOT mention other cities (like Jaipur or Jaisalmer) unless the user specifically asks about them. Stay on topic!
+        2. CLOSING THE DEAL: If the user seems satisfied, asks for final booking, or agrees to a price, STOP asking questions. Instead, firmly say: "Sir, sab set hai! Booking confirm karne ke liye bas niche 'Save & Send Full Deal' wale hare (green) button pe click kar dijiye, main WhatsApp pe wait kar raha hu."
+        3. YOU ARE HUMAN: Talk like a local expert in Hinglish. Use 'Hukum', 'Bhaiya', 'Padharo Mare Desh', 'Haan ji'.
+        4. KEEP IT SHORT: Max 2-3 sentences. No bullet points. No robotic essays.
+        5. PRICES: Innova Crysta is approx ₹14/km (good for family). Force Urbania is for big groups. Sedan is ₹10/km.
       `;
 
       const response = await fetch(API_URL, {
@@ -61,16 +68,23 @@ const Chatbot = () => {
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${GROQ_API_KEY}` },
         body: JSON.stringify({
           model: "llama-3.3-70b-versatile",
-          messages: [{ role: "system", content: systemPrompt }, ...chatHistory.slice(-10).map(m => ({ role: m.sender === 'bot' ? 'assistant' : 'user', content: m.text }))],
-          temperature: 0.8
+          // Send only the last 6 messages to keep the AI highly focused on the immediate context
+          messages: [{ role: "system", content: systemPrompt }, ...chatHistory.slice(-6).map(m => ({ role: m.sender === 'bot' ? 'assistant' : 'user', content: m.text }))],
+          temperature: 0.6 // Lower temperature means it will stick to the rules more strictly and not hallucinate other cities
         })
       });
       const data = await response.json();
+      if (data.error) throw new Error(data.error.message);
+
       const aiReply = data.choices[0].message.content;
       setIsTyping(false);
       setMessages(prev => [...prev, { id: Date.now(), text: aiReply, sender: 'bot' }]);
       speak(aiReply);
-    } catch (e) { setIsTyping(false); }
+    } catch (e) { 
+      console.error(e);
+      setIsTyping(false); 
+      setMessages(prev => [...prev, { id: Date.now(), text: "Arre sir thoda network issue aa raha hai. Aap direct mujhe WhatsApp pe text kar dijiye niche wale button se!", sender: 'bot' }]);
+    }
   };
 
   const generateDetailedReport = async () => {
@@ -78,16 +92,24 @@ const Chatbot = () => {
     const chatLog = messages.map(m => `${m.sender.toUpperCase()}: ${m.text}`).join("\n");
 
     const analysisPrompt = `
-      Analyze this chat and create a detailed VIP LEAD REPORT for the owner.
-      Chat: ${chatLog}
+      Analyze this chat log and create a highly detailed VIP LEAD REPORT for Raju Ji.
       
-      Format in Hinglish with Emojis:
-      - 👤 GUEST NAME: 
-      - 📍 DESTINATION:
-      - 👥 MEMBERS:
-      - 📅 DATES:
-      - 💬 WHAT HAPPENED: (Summarize the whole deal, promises made, prices discussed in 4-5 lines)
-      - ⚡ ACTION: (What should Raju do next?)
+      Chat Log:
+      ${chatLog}
+      
+      Output format strictly exactly like this (in Hinglish with Emojis):
+      
+      *New Booking Lead from shreedevjodhpur.in* 🚨
+      
+      👤 *Guest Name:* [Extract name or write 'Not provided']
+      📍 *Destination:* [Where do they want to go?]
+      👥 *Members:* [How many people?]
+      📅 *Dates:* [When are they travelling?]
+      🚗 *Vehicle Preference:* [Which car?]
+      
+      💬 *Summary of Deal:* [Summarize the conversation, any promises made, or prices discussed in 3-4 lines]
+      
+      ⚡ *Action Required:* [What should Raju do immediately to close this?]
     `;
 
     try {
@@ -100,15 +122,24 @@ const Chatbot = () => {
         })
       });
       const data = await response.json();
-      window.open(`https://wa.me/${OWNER_NUMBER}?text=${encodeURIComponent(data.choices[0].message.content)}`, "_blank");
+      const reportContent = data.choices[0].message.content;
+      
+      // Send the generated report directly to WhatsApp
+      window.open(`https://wa.me/${OWNER_NUMBER}?text=${encodeURIComponent(reportContent)}`, "_blank");
       setIsTyping(false);
-    } catch (e) { setIsTyping(false); }
+    } catch (e) { 
+      console.error(e);
+      // Fallback if AI fails to generate report
+      window.open(`https://wa.me/${OWNER_NUMBER}?text=Hi,%20sending%20booking%20details%20from%20website.`, "_blank");
+      setIsTyping(false); 
+    }
   };
 
   return (
     <>
       {/* Floating Button with Pulse */}
       <motion.button 
+        aria-label="Open AI Assistant"
         onClick={() => setIsOpen(!isOpen)} 
         whileHover={{ scale: 1.1 }}
         className="fixed bottom-6 right-6 bg-gradient-to-tr from-blue-700 to-blue-500 text-white p-4 rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] z-50 border border-white/20"
@@ -171,7 +202,7 @@ const Chatbot = () => {
                 ].map((item, i) => (
                     <button 
                       key={i} 
-                      onClick={() => handleSend(item.text)}
+                      onClick={() => handleSend(item.text)} // Suggestion click triggers send
                       className="flex items-center gap-1.5 whitespace-nowrap bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] px-3 py-2 rounded-full border border-slate-700 transition-colors"
                     >
                         {item.icon} {item.text}
@@ -181,20 +212,28 @@ const Chatbot = () => {
 
             {/* Input Section */}
             <div className="p-4 bg-slate-950 border-t border-slate-800">
+               {/* THE BIG GREEN CTA BUTTON */}
                <button 
                   onClick={generateDetailedReport}
                   className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white py-3 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 mb-4 shadow-xl shadow-green-900/20 transition-all active:scale-95"
                >
-                  <FileText size={16} /> Save & Send Full Deal to WhatsApp
+                  <FileText size={16} /> Save & Send Full Deal
                </button>
                
                <div className="flex gap-3 items-center bg-slate-900 p-2 rounded-2xl border border-slate-800 focus-within:border-blue-500 transition-all">
-                 <button 
-                    onClick={() => listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening({ language: lang })} 
-                    className={`p-2.5 rounded-xl transition-all ${listening ? 'bg-red-500/20 text-red-500 animate-pulse' : 'bg-slate-800 text-slate-400'}`}
-                 >
-                   {listening ? <MicOff size={20}/> : <Mic size={20}/>}
-                 </button>
+                 {/* Smart Mic Button (Crash Proof) */}
+                 {browserSupportsSpeechRecognition ? (
+                     <button 
+                        onClick={() => listening ? SpeechRecognition.stopListening() : SpeechRecognition.startListening({ language: lang })} 
+                        className={`p-2.5 rounded-xl transition-all ${listening ? 'bg-red-500/20 text-red-500 animate-pulse' : 'bg-slate-800 text-slate-400'}`}
+                     >
+                       {listening ? <MicOff size={20}/> : <Mic size={20}/>}
+                     </button>
+                 ) : (
+                     <button disabled className="p-2.5 rounded-xl bg-slate-800 text-slate-600 cursor-not-allowed">
+                         <MicOff size={20}/>
+                     </button>
+                 )}
                  
                  <input 
                     value={input} 

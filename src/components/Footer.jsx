@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, Facebook, Instagram, Twitter, Mail, ChevronRight } from 'lucide-react';
+import { Phone, MapPin, Facebook, Instagram, Twitter, Mail, ChevronRight, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800 font-sans">
+    <footer className="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800 font-sans" aria-label="Site Footer">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Changed grid to 4 columns for extra SEO links */}
@@ -15,90 +15,101 @@ const Footer = () => {
             <Link to="/" className="flex items-center justify-center sm:justify-start gap-3" aria-label="Shree Dev Travels Home">
               <img 
                  src="/wolf-logo.png" 
-                 alt="Shree Dev Tour and Travel Logo" 
+                 alt="Shree Dev Tour and Travel Logo - Best Jodhpur Taxi" 
                  className="w-12 h-12 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)] border border-blue-500/20"
+                 loading="lazy"
               />
               <h3 className="text-2xl font-bold text-white tracking-tight">
                 SHREE DEV <span className="text-blue-500">TRAVELS</span>
               </h3>
             </Link>
-            {/* SEO Optimized Description */}
+            {/* SEO Optimized Description (Jodhpur focused) */}
             <p className="text-sm leading-relaxed max-w-xs mx-auto sm:mx-0">
-              Rajasthan's top-rated travel agency. We provide luxury Innova Crysta, Force Urbania, and customized tour packages for Jaipur, Jodhpur, and Jaisalmer.
+              Jodhpur & Rajasthan's top-rated travel agency. We provide premium <strong>Innova Crysta</strong>, <strong>Force Urbania</strong>, and customized tour packages for Jaisalmer and Jaipur.
             </p>
             
             {/* Social Icons */}
             <div className="flex justify-center sm:justify-start gap-4 pt-2">
-              <SocialIcon icon={<Facebook size={18} />} link="#" ariaLabel="Facebook" />
-              <SocialIcon icon={<Instagram size={18} />} link="#" ariaLabel="Instagram" />
-              <SocialIcon icon={<Twitter size={18} />} link="#" ariaLabel="Twitter" />
+              <SocialIcon icon={<Facebook size={18} />} link="#" ariaLabel="Facebook Page" />
+              <SocialIcon icon={<Instagram size={18} />} link="#" ariaLabel="Instagram Profile" />
+              <SocialIcon icon={<Twitter size={18} />} link="#" ariaLabel="Twitter Profile" />
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
+          {/* Column 2: Quick Links (Updated with New Pages) */}
+          <nav aria-label="Footer Quick Links">
             <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">Explore</h3>
             <ul className="space-y-3">
               <FooterLink to="/" text="Home" />
+              <FooterLink to="/about" text="About Us" />
               <FooterLink to="/services" text="Our Premium Fleet" />
               <FooterLink to="/packages" text="Rajasthan Tour Packages" />
+              <FooterLink to="/faq" text="Travel FAQs" />
               <FooterLink to="/contact" text="Contact Support" />
+              
             </ul>
-          </div>
+          </nav>
 
           {/* Column 3: The SEO Goldmine (Top Routes & Keywords) */}
-          <div>
+          <nav aria-label="Top Tour Routes">
             <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">Top Routes</h3>
             <ul className="space-y-3">
-              <FooterLink to="/services" text="Jaipur to Jodhpur Taxi" />
-              <FooterLink to="/packages" text="Jaisalmer Desert Safari" />
-              <FooterLink to="/services" text="Innova Crysta on Rent" />
-              <FooterLink to="/packages" text="Umaid Bhawan & Fort Tours" />
+              <FooterLink to="/services" text="Jodhpur to Jaisalmer Taxi" />
+              <FooterLink to="/packages" text="Best Desert Safari Camp" />
+              <FooterLink to="/services" text="Hire Force Urbania Jodhpur" />
+              <FooterLink to="/packages" text="Mehrangarh & Umaid Tours" />
             </ul>
-          </div>
+          </nav>
 
-          {/* Column 4: Contact Info */}
-          <div>
+          {/* Column 4: Contact Info (Wrapped in <address> for Local SEO) */}
+          <address className="not-italic">
             <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">Get in Touch</h3>
             <div className="space-y-4">
               <div className="flex flex-col items-center sm:items-start gap-1">
                  <div className="flex items-center gap-2 text-blue-500 font-bold">
-                    <MapPin size={18} /> Headquarters
+                    <MapPin size={18} aria-hidden="true" /> Service Area
                  </div>
-                 <p className="text-sm">Jaipur, Rajasthan (India)</p>
+                 <p className="text-sm">Jodhpur & Jaipur, Rajasthan (India)</p>
               </div>
 
               <div className="flex flex-col items-center sm:items-start gap-1">
                  <div className="flex items-center gap-2 text-blue-500 font-bold">
-                    <Phone size={18} /> 24/7 Cab Booking
+                    <Phone size={18} aria-hidden="true" /> 24/7 Cab Booking
                  </div>
-                 <a href="tel:8890472581" className="text-white hover:text-blue-400 transition text-lg font-semibold">
+                 <a href="tel:8890472581" className="text-white hover:text-blue-400 transition text-lg font-semibold" title="Call Shree Dev Travels">
                    +91 88904-72581
                  </a>
-                 <a href="tel:8290071304" className="text-slate-400 hover:text-blue-400 transition text-sm">
-                   +91 82900-71304
+                 <a href="https://wa.me/918290071304" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-green-500 hover:text-green-400 transition text-sm font-semibold" title="WhatsApp Us">
+                   <MessageCircle size={14} /> +91 82900-71304
                  </a>
               </div>
 
               <div className="flex flex-col items-center sm:items-start gap-1">
                  <div className="flex items-center gap-2 text-blue-500 font-bold">
-                    <Mail size={18} /> Email Us
+                    <Mail size={18} aria-hidden="true" /> Email Us
                  </div>
-                 <a href="mailto:booking@shreedev.com" className="text-sm hover:text-white transition">
+                 <a href="mailto:booking@shreedev.com" className="text-sm hover:text-white transition" title="Email Shree Dev Travels">
                    booking@shreedev.com
                  </a>
               </div>
             </div>
-          </div>
+          </address>
 
         </div>
 
-        {/* Copyright Line */}
-        <div className="border-t border-slate-900 mt-16 pt-8 text-center flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+        {/* Copyright & Legal Links Line */}
+        <div className="border-t border-slate-900 mt-16 pt-8 text-center flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} Shree Dev Tour and Travel. All rights reserved.</p>
-          <p className="mt-2 md:mt-0 flex gap-4">
-            <span className="hover:text-slate-400 cursor-pointer transition">Privacy Policy</span>
-            <span className="hover:text-slate-400 cursor-pointer transition">Terms of Service</span>
+          
+          {/* Legal Pages (Privacy & Terms) Added Here */}
+          <div className="flex gap-6 mt-4 md:mt-0 font-medium">
+            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-blue-400 transition-colors">Terms & Conditions</Link>
+          </div>
+
+          {/* Proud Freelancer Signature! 🐺 */}
+          <p className="mt-4 md:mt-0 font-medium">
+            Developed by <span className="text-blue-500 font-bold tracking-wider hover:text-blue-400 transition cursor-pointer">The Wolf Freelancers Group 🐺</span>
           </p>
         </div>
 
@@ -107,7 +118,7 @@ const Footer = () => {
   );
 };
 
-// --- Helper Components for Cleaner Code ---
+// --- Helper Components ---
 
 const SocialIcon = ({ icon, link, ariaLabel }) => (
   <a 
@@ -123,8 +134,8 @@ const SocialIcon = ({ icon, link, ariaLabel }) => (
 
 const FooterLink = ({ to, text }) => (
   <li>
-    <Link to={to} className="flex items-center justify-center sm:justify-start gap-2 text-sm hover:text-white hover:translate-x-1 transition-all group">
-      <ChevronRight size={14} className="text-blue-600 group-hover:text-blue-400 transition-colors" />
+    <Link to={to} title={text} className="flex items-center justify-center sm:justify-start gap-2 text-sm hover:text-white hover:translate-x-1 transition-all group">
+      <ChevronRight size={14} className="text-blue-600 group-hover:text-blue-400 transition-colors" aria-hidden="true" />
       {text}
     </Link>
   </li>
