@@ -75,7 +75,7 @@ const Services = () => {
             title="Premium SUV"
             model="Innova Crysta"
             price="₹14 - ₹18"
-            image="https://images.unsplash.com/photo-1609529669235-c07e4e1bd6e9?q=80&w=2071&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/1239228/pexels-photo-1239228.jpeg"
             specs={{ seats: '6-7 Pax', bags: '4 Bags', type: 'Luxury Tour' }}
             isPopular={true}
             accent="from-cyan-500 to-blue-800"
@@ -87,7 +87,7 @@ const Services = () => {
             title="Luxury Mini-Bus"
             model="Force Urbania"
             price="₹24 - ₹28"
-            image="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/18029632/pexels-photo-18029632.jpeg"
             specs={{ seats: '10-17 Pax', bags: '8 Bags', type: 'Group Travel' }}
             accent="from-amber-600 to-slate-900"
             seoAlt="Force Urbania 12 17 seater taxi in Jodhpur Rajasthan"
@@ -97,7 +97,7 @@ const Services = () => {
             title="Sedan Prime"
             model="Maruti Dzire"
             price="₹10 - ₹11"
-            image="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/30648753/pexels-photo-30648753.jpeg"
             specs={{ seats: '4 Pax', bags: '2 Bags', type: 'Economy / Local' }}
             accent="from-blue-600 to-slate-900"
             seoAlt="Maruti Dzire Etios taxi service in Jodhpur"

@@ -1,118 +1,95 @@
-import React, { useRef, Suspense } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { 
-  OrbitControls, 
-  useGLTF, 
-  Environment, 
-  ContactShadows, 
-  Grid, 
-  SpotLight,
-  AdaptiveDpr, 
-  AdaptiveEvents 
-} from '@react-three/drei';
-import { MapPin, ChevronRight, Star } from 'lucide-react';
+import { ChevronRight, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import BookingWidget from './BookingWidget';
 import FAQ from './FAQ';
 import TopRoutes from './TopRoutes';
 
-// --- 3D CAR MODEL (No changes, perfectly optimized) ---
-const RealCarModel = () => {
-  const { scene } = useGLTF('/cars.glb'); 
-  const carRef = useRef();
 
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    carRef.current.rotation.y = Math.sin(t / 4) * 0.2; 
-  });
+const WOLF_LOGO = "/wolf-logo.png"; 
 
-  return (
-    <primitive 
-      ref={carRef}
-      object={scene} 
-      scale={0.6} 
-      position={[0, 0, 0]} 
-      rotation={[0, -0.5, 0]}
-    />
-  );
-};
-
-// --- MAIN PAGE COMPONENT ---
 const FutureHome = () => {
   return (
     <div className="relative w-full min-h-screen bg-slate-900 text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
       
-      {/* ================= ADVANCED SEO HELMET ================= */}
       <Helmet>
         <title>Best Taxi Service in Jodhpur & Jaisalmer Tour | Shree Dev Travels</title>
         <meta name="description" content="Book the best taxi service in Jodhpur. Rent Innova Crysta, Force Urbania for local sightseeing, Mehrangarh fort, and Jaisalmer desert safari. Affordable per km rates." />
-        <meta name="keywords" content="Jodhpur taxi, Cab service in Jodhpur, Jodhpur to Jaisalmer cab, Innova Crysta rent Jodhpur, Force Urbania Rajasthan, Best travel agency in Jodhpur, Mehrangarh fort taxi" />
       </Helmet>
 
-      {/* ================= SECTION 1: HERO (3D SHOWROOM) ================= */}
-      <section className="relative h-[85vh] w-full overflow-hidden" aria-label="Hero Section">
+      {/* ================= SECTION 1: HERO (Logo Showcase) ================= */}
+      <section className="relative h-[80vh] w-full overflow-hidden flex items-center" aria-label="Hero Section">
         
-        {/* 3D CANVAS - OPTIMIZED FOR MOBILE */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-          <Canvas 
-            camera={{ position: [3, 1.5, 5], fov: 50 }} 
-            shadows 
-            dpr={[1, 1.5]} 
-            performance={{ min: 0.5 }} 
-          >
-            <AdaptiveDpr pixelated />
-            <AdaptiveEvents />
-
-            <ambientLight intensity={0.5} />
-            <Environment preset="city" />
-            <SpotLight position={[0, 5, 0]} distance={10} angle={0.5} attenuation={5} anglePower={5} color="#fff" intensity={20} />
-
-            <Suspense fallback={null}>
-              <RealCarModel />
-            </Suspense>
-
-            <ContactShadows resolution={512} scale={10} blur={1} opacity={0.6} far={1} color="#000" frames={1} />
-            
-            <Grid renderOrder={-1} position={[0, -0.01, 0]} infiniteGrid cellSize={0.6} sectionSize={3} fadeDistance={25} sectionColor="#4f46e5" cellColor="#334155" />
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} maxPolarAngle={Math.PI / 2.1} />
-          </Canvas>
-          
-          <div className="absolute bottom-0 w-full h-48 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+        {/* BACKGROUND GRADIENT & LIGHT EFFECTS */}
+        <div className="absolute inset-0 z-0 bg-slate-950">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
         </div>
 
-        {/* HERO TEXT LAYER (SEO H1) */}
-        <div className="absolute inset-0 z-10 container mx-auto px-6 pt-32 pointer-events-none">
+        <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* LEFT: HERO TEXT */}
           <motion.div 
-             initial={{ opacity: 0, y: 30 }} 
-             animate={{ opacity: 1, y: 0 }} 
+             initial={{ opacity: 0, x: -30 }} 
+             animate={{ opacity: 1, x: 0 }} 
              transition={{ duration: 0.8 }}
-             className="max-w-3xl pointer-events-auto"
+             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-1 px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-300 uppercase bg-blue-500/10 rounded-full border border-blue-500/20 backdrop-blur-md shadow-lg">
-              <Star size={12} className="text-brand-light" fill="currentColor"/> #1 Premium Taxi in Jodhpur
+            <div className="inline-flex items-center gap-1 px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-blue-300 uppercase bg-blue-500/10 rounded-full border border-blue-500/20 backdrop-blur-md">
+              <Star size={12} className="text-blue-400" fill="currentColor"/> #1 Premium Taxi in Jodhpur
             </div>
-            {/* Extremely Powerful Local SEO H1 */}
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4 drop-shadow-2xl">
-              Premium Cabs & <br />
+            
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+              Shree Dev <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                Rajasthan Tours
+                Travels
               </span>
             </h1>
-            <p className="text-slate-300 text-lg mb-8 max-w-lg drop-shadow-md font-medium">
-              Book luxury SUVs like <strong>Innova Crysta</strong>, <strong>Force Urbania</strong>, and reliable sedans for local sightseeing and outstation travel.
+            
+            <p className="text-slate-300 text-lg mb-8 max-w-lg font-medium leading-relaxed">
+              Premium <strong>Innova Crysta</strong> & <strong>Force Urbania</strong> services for Jodhpur sightseeing and Rajasthan tours. Fast, reliable, and expert drivers.
             </p>
+
+            <div className="flex gap-4">
+               <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-blue-600/20">
+                 Book Now
+               </button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: WOLF LOGO (Replacing 3D) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="hidden lg:flex justify-center items-center"
+          >
+            <div className="relative group">
+              {/* Logo Glow Effect */}
+              <div className="absolute inset-0 bg-blue-500/20 blur-[60px] group-hover:bg-blue-500/40 transition-all duration-500"></div>
+              
+              <img 
+                src={WOLF_LOGO} 
+                alt="Shree Dev Travels Wolf Logo" 
+                className="relative w-[450px] h-auto object-contain drop-shadow-2xl filter brightness-110"
+                fetchpriority="high"
+                loading="eager"
+              />
+            </div>
           </motion.div>
         </div>
+
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-slate-900 to-transparent"></div>
       </section>
 
       {/* ================= SECTION 2: BOOKING ENGINE ================= */}
-      <section className="relative z-20 -mt-32 container mx-auto px-4" aria-label="Cab Booking Widget">
+      <section className="relative z-20 -mt-20 container mx-auto px-4">
         <BookingWidget />
       </section>
 
-      {/* ================= SECTION 3: TRUST STRIP ================= */}
-      <section className="bg-slate-900 py-12 border-b border-slate-800" aria-label="Company Stats">
+      {/* ================= SECTION 3: STATS ================= */}
+      <section className="bg-slate-900 py-16 border-b border-slate-800">
         <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <StatItem number="100+" label="Premium Cabs" />
             <StatItem number="1.5M+" label="Kilometers Driven" />
@@ -121,66 +98,54 @@ const FutureHome = () => {
         </div>
       </section>
 
-      {/* ================= SECTION 4: WHITE INFO SECTION (Competitor Keywords) ================= */}
-      <section className="bg-white text-slate-900 py-20 px-6" aria-label="Why Choose Shree Dev Travels">
+      {/* ================= SECTION 4: INFO ================= */}
+      <section className="bg-white text-slate-900 py-24 px-6">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          
           <div>
-            <h3 className="text-blue-600 font-bold tracking-wider text-sm mb-2 uppercase">Why Choose Shree Dev Travels</h3>
-            {/* SEO H2 Tag */}
+            <h3 className="text-blue-600 font-bold tracking-wider text-sm mb-2 uppercase">Why Choose Us</h3>
             <h2 className="text-4xl font-bold mb-6">Top-Rated Travel Agency <br/>in Jodhpur.</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              Whether you need a reliable cab for <strong>Jodhpur local sightseeing (Mehrangarh Fort, Umaid Bhawan Palace)</strong> or an outstation taxi from <strong>Jodhpur to Jaisalmer</strong>, we provide seamless travel experiences. Our premium fleet features GPS-tracked vehicles for ultimate comfort and safety.
+              Expert guides for <strong>Mehrangarh Fort</strong>, <strong>Umaid Bhawan</strong>, and desert safaris in <strong>Jaisalmer</strong>.
             </p>
-            
             <ul className="space-y-4">
-              <FeatureItem text="Transparent Billing (No Hidden Costs per KM)" />
-              <FeatureItem text="Expert Local Drivers & Guides" />
-              <FeatureItem text="24/7 WhatsApp Support for Outstation Tours" />
+              <FeatureItem text="Transparent per KM Billing" />
+              <FeatureItem text="Clean & Sanatized Vehicles" />
+              <FeatureItem text="24/7 Support for Tourists" />
             </ul>
           </div>
 
-          <div className="relative h-80 bg-slate-100 rounded-3xl overflow-hidden shadow-2xl">
-             {/* Optimized Image Alt Tag */}
+          <div className="relative h-[400px] bg-slate-100 rounded-[2rem] overflow-hidden shadow-2xl">
              <img 
-               src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop" 
+               src="https://images.pexels.com/photos/11750442/pexels-photo-11750442.jpeg" 
                className="w-full h-full object-cover" 
-               alt="Premium outstation taxi and cab service in Jodhpur Rajasthan" 
+               alt="Tourists in Rajasthan" 
                loading="lazy"
              />
-             <div className="absolute inset-0 bg-blue-900/10"></div>
           </div>
         </div>
       </section>
 
-      {/* ================= SECTION 5: POPULAR DESTINATIONS ================= */}
-      <section  aria-label="Popular Rajasthan Tour Routes">
-        
-        
-        <TopRoutes/>
-      </section>
-      <section>
-        <FAQ/>
-      </section>
+      <section><TopRoutes /></section>
+      <section><FAQ /></section>
 
     </div>
   );
 };
 
-// --- HELPER COMPONENTS ---
-
+// --- HELPERS ---
 const StatItem = ({ number, label }) => (
-  <div>
+  <div className="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
     <div className="text-3xl md:text-4xl font-bold text-white mb-1">{number}</div>
     <div className="text-xs md:text-sm text-slate-400 uppercase tracking-widest font-semibold">{label}</div>
   </div>
 );
 
-
 const FeatureItem = ({ text }) => (
   <li className="flex items-center gap-3 font-medium text-slate-700">
-    <div className="w-6 h-6 min-w-[24px] rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm"><ChevronRight size={14} strokeWidth={3} /></div>
-    <span dangerouslySetInnerHTML={{ __html: text }} />
+    <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+        <ChevronRight size={14} strokeWidth={3} />
+    </div>
+    <span>{text}</span>
   </li>
 );
 

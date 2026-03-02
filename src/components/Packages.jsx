@@ -64,7 +64,7 @@ const Packages = () => {
             title="Jodhpur Heritage & City Tour"
             duration="2 Days / 1 Night"
             price="₹5,500"
-            image="https://images.unsplash.com/photo-1599557404456-11f879bfac12?q=80&w=1935&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/797824/pexels-photo-797824.jpeg"
             locations={['Mehrangarh Fort', 'Umaid Bhawan', 'Jaswant Thada', 'Clock Tower']}
             seoAlt="Jodhpur city tour package including Mehrangarh Fort and Umaid Bhawan taxi"
             itinerary={[
@@ -78,7 +78,7 @@ const Packages = () => {
             title="Jaisalmer Desert Safari & Camp"
             duration="3 Days / 2 Nights"
             price="₹12,500"
-            image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1886&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/12912712/pexels-photo-12912712.jpeg"
             locations={['Sam Sand Dunes', 'Camel Ride', 'Jeep Safari', 'Golden Fort']}
             seoAlt="Jaisalmer desert safari tour package with camel ride and Swiss tents"
             itinerary={[
@@ -93,7 +93,7 @@ const Packages = () => {
             title="Jaipur Royal Darshan"
             duration="2 Days / 1 Night"
             price="₹4,500"
-            image="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/11750442/pexels-photo-11750442.jpeg"
             locations={['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jal Mahal']}
             seoAlt="Jaipur local sightseeing tour package by premium cab"
             itinerary={[
@@ -107,7 +107,7 @@ const Packages = () => {
             title="Ultimate Rajasthan (Jaipur-Jodhpur-Jaisalmer)"
             duration="6 Days / 5 Nights"
             price="₹28,000"
-            image="https://images.unsplash.com/photo-1604312591603-f01e18cc8564?q=80&w=2072&auto=format&fit=crop"
+            image="https://media.istockphoto.com/id/1224021113/photo/indian-cameleers-camel-driver-with-camel-silhouettes-in-dunes-on-sunset-jaisalmer-rajasthan.jpg?s=2048x2048&w=is&k=20&c=7jfwu64-qz1QkDyB24lih3bwbgQYlKfF3ePozOU7shA="
             locations={['Jaipur', 'Jodhpur', 'Jaisalmer Camp', 'Sightseeing']}
             seoAlt="Complete Rajasthan tour package covering Jaipur, Jodhpur, and Jaisalmer"
             itinerary={[

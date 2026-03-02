@@ -51,7 +51,7 @@ const TopRoutes = () => {
           <DestinationCard 
             name="Jodhpur" 
             tag="Mehrangarh & Blue City" 
-            image="https://images.unsplash.com/photo-1599557404456-11f879bfac12?q=80&w=1935&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/797824/pexels-photo-797824.jpeg"
             seoAlt="Jodhpur local sightseeing taxi and Mehrangarh fort tour"
             linkTo="/packages"
             linkTitle="Explore Jodhpur Taxi and Tour Packages"
@@ -60,7 +60,7 @@ const TopRoutes = () => {
           <DestinationCard 
             name="Jaisalmer" 
             tag="Sand Dunes & Camel Ride" 
-            image="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1886&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/30573733/pexels-photo-30573733.jpeg"
             seoAlt="Jaisalmer desert safari tour packages from Jodhpur"
             linkTo="/packages"
             linkTitle="Book Jaisalmer Desert Safari Packages"
@@ -69,7 +69,7 @@ const TopRoutes = () => {
           <DestinationCard 
             name="Jaipur" 
             tag="Amber Fort & Pink City" 
-            image="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop"
+            image="https://images.pexels.com/photos/2588193/pexels-photo-2588193.jpeg"
             seoAlt="Jaipur to Jodhpur outstation cab service"
             linkTo="/packages"
             linkTitle="Hire Outstation Cabs for Jaipur Tour"

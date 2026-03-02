@@ -82,9 +82,9 @@ const About = () => {
             </p>
             <div className="flex items-center gap-4 pt-4">
               <div className="flex -space-x-4">
-                 <img className="w-12 h-12 rounded-full border-2 border-slate-900 object-cover" src="https://images.unsplash.com/photo-1533227260879-1090f0c411ed?q=80&w=200&auto=format&fit=crop" alt="Happy Client 1" />
-                 <img className="w-12 h-12 rounded-full border-2 border-slate-900 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Happy Client 2" />
-                 <img className="w-12 h-12 rounded-full border-2 border-slate-900 object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Happy Client 3" />
+                 <img className="w-12 h-12 rounded-full border-2 border-slate-900 object-cover" src="https://images.pexels.com/photos/8112164/pexels-photo-8112164.jpeg" alt="Happy Client 1" />
+                 <img className="w-12 h-12 rounded-full border-2 border-slate-900 object-cover" src="https://images.pexels.com/photos/8112164/pexels-photo-8112164.jpeg" alt="Happy Client 2" />
+                 <img className="w-12 h-12 rounded-full border-2 border-slate-900 object-cover" src="https://images.pexels.com/photos/8112164/pexels-photo-8112164.jpeg" alt="Happy Client 3" />
                  <div className="w-12 h-12 rounded-full border-2 border-slate-900 bg-blue-600 flex items-center justify-center text-xs font-bold text-white">+50k</div>
               </div>
               <p className="text-sm font-bold text-slate-300">Happy Travelers <br/>Across India & Abroad</p>
@@ -99,12 +99,12 @@ const About = () => {
             className="grid grid-cols-2 gap-4"
           >
             <img 
-              src="https://images.unsplash.com/photo-1604312591603-f01e18cc8564?q=80&w=1000&auto=format&fit=crop" 
+              src="https://images.pexels.com/photos/8112164/pexels-photo-8112164.jpeg" 
               alt="Rajasthan Fort Tour" 
               className="rounded-3xl h-64 w-full object-cover shadow-2xl"
             />
             <img 
-              src="https://images.unsplash.com/photo-1599557404456-11f879bfac12?q=80&w=1000&auto=format&fit=crop" 
+              src="https://media.istockphoto.com/id/1224021113/photo/indian-cameleers-camel-driver-with-camel-silhouettes-in-dunes-on-sunset-jaisalmer-rajasthan.jpg?s=2048x2048&w=is&k=20&c=7jfwu64-qz1QkDyB24lih3bwbgQYlKfF3ePozOU7shA=" 
               alt="Jodhpur Blue City" 
               className="rounded-3xl h-64 w-full object-cover shadow-2xl mt-8"
             />
