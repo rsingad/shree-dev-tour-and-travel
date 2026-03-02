@@ -11,19 +11,19 @@ const Preloader = ({ onComplete }) => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(onComplete, 500); 
+          setTimeout(onComplete, 500);
           return 100;
         }
-        
+
         // --- UX/SEO HACK: Injecting Competitor & High-Value Keywords during load ---
         if (prev === 20) setLoadingText("LOCATING PREMIUM FLEET (INNOVA CRYSTA, URBANIA)...");
         if (prev === 40) setLoadingText("SYNCING JODHPUR & JAISALMER TOUR ROUTES...");
         if (prev === 60) setLoadingText("PREPARING DESERT SAFARI & MEHRANGARH PROTOCOLS...");
         if (prev === 80) setLoadingText("READY FOR LUXURY DEPARTURE...");
 
-        return prev + 1; 
+        return prev + 1;
       });
-    }, 20); 
+    }, 20);
 
     return () => clearInterval(timer);
   }, [onComplete]);
@@ -42,19 +42,22 @@ const Preloader = ({ onComplete }) => {
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 flex flex-col items-center">
-        
+
         {/* --- BRANDING: Glowing Wolf Logo --- */}
-        <motion.img 
+        <motion.img
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          src="/wolf-logo.png" 
-          alt="Shree Dev Travels Logo" 
+          src="/wolf-logo.webp" // Nayi optimized file use karein
+          alt="Shree Dev Travels Logo"
+          width="96"  // width aur height fix karne se CLS sudhrega
+          height="96"
+          fetchpriority="high" // Browser ko batayein ki ye sabse zaroori hai
           className="w-24 h-24 object-contain rounded-full shadow-[0_0_30px_rgba(59,130,246,0.5)] border border-blue-500/30 mb-6"
         />
 
         {/* Brand Name */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -69,14 +72,14 @@ const Preloader = ({ onComplete }) => {
         </p>
 
         {/* Progress Bar (SEO Accessible) */}
-        <div 
+        <div
           className="w-64 h-1 bg-slate-800 rounded-full overflow-hidden relative mx-auto"
           role="progressbar"
           aria-valuenow={progress}
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <motion.div 
+          <motion.div
             className="h-full bg-blue-500 shadow-[0_0_15px_#3b82f6]"
             initial={{ width: "0%" }}
             animate={{ width: `${progress}%` }}

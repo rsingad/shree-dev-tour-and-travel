@@ -34,7 +34,7 @@ const Contact = () => {
     "mainEntity": {
       "@type": "LocalBusiness",
       "name": "Shree Dev Travels Jodhpur",
-      "image": "https://shreedevjodhpur.in/wolf-logo.png",
+      "image": "https://shreedevjodhpur.in/wolf-logo.webp",
       "telephone": "+918890472581",
       "email": "booking@shreedev.com",
       "address": {

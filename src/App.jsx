@@ -63,13 +63,13 @@ function App() {
         <meta property="og:description" content="Experience the best Jodhpur tour & travels with Shree Dev Travels. Safe, affordable, 24/7 service with GPS-enabled luxury cars." />
         <meta property="og:url" content="https://shreedevjodhpur.in/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://shreedevjodhpur.in/wolf-logo.png" />
+        <meta property="og:image" content="https://shreedevjodhpur.in/wolf-logo.webp" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Top Jodhpur Tour & Travels | Shree Dev Travels" />
         <meta name="twitter:description" content="Book your Jodhpur cab & taxi or outstation tour packages today." />
-        <meta name="twitter:image" content="https://shreedevjodhpur.in/wolf-logo.png" />
+        <meta name="twitter:image" content="https://shreedevjodhpur.in/wolf-logo.webp" />
 
         {/* Injecting Sitelinks Schema */}
         <script type="application/ld+json">

@@ -40,8 +40,12 @@ const Navbar = () => {
                 {/* whitespace-nowrap lagaya hai taaki text tute nahi */}
                 <Link to="/" className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-2 md:gap-3 z-50 whitespace-nowrap" aria-label="Shree Dev Travels Home">
                     <img
-                        src="/wolf-logo.png"
+                        src="/wolf-logo.webp" // Naya optimized format
                         alt="Shree Dev Tour and Travel - Best Taxi in Jodhpur"
+                        
+                        width="40"
+                        height="40"
+                        loading="eager" // Navbar hamesha turant dikhna chahiye
                         className="w-9 h-9 md:w-10 md:h-10 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)] border border-blue-500/40"
                     />
                     <span>SHREE DEV <span className="text-blue-500">TRAVELS</span></span>
@@ -50,8 +54,8 @@ const Navbar = () => {
                 {/* DESKTOP MENU (Changed md:flex to lg:flex for better fit under 1280px) */}
                 <div className="hidden lg:flex items-center gap-5 xl:gap-8">
                     <NavLink to="/" text="Home" />
-                    <NavLink to="/services" text="Premium Fleet" /> 
-                    <NavLink to="/packages" text="Rajasthan Tours" /> 
+                    <NavLink to="/services" text="Premium Fleet" />
+                    <NavLink to="/packages" text="Rajasthan Tours" />
                     <NavLink to="/about" text="About" />
                     <NavLink to="/faq" text="FAQ" />
                     <NavLink to="/contact" text="Contact" />
@@ -90,8 +94,8 @@ const Navbar = () => {
                             <MobileNavLink to="/" text="Home" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/services" text="Premium Cabs" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/packages" text="Tour Packages" onClick={() => setIsOpen(false)} />
-                            <MobileNavLink to="/about" text="About Us" onClick={() => setIsOpen(false)}/>
-                            <MobileNavLink to="/faq" text="Travel FAQs" onClick={() => setIsOpen(false)}/>
+                            <MobileNavLink to="/about" text="About Us" onClick={() => setIsOpen(false)} />
+                            <MobileNavLink to="/faq" text="Travel FAQs" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/contact" text="Contact Support" onClick={() => setIsOpen(false)} />
 
                             {/* Mobile Action Buttons (Optimized for Conversions) */}
