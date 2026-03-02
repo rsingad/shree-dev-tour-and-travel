@@ -21,6 +21,11 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Jab route change ho, toh mobile menu band ho jaye
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location.pathname]);
+
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen
@@ -29,34 +34,33 @@ const Navbar = () => {
                 }`}
             aria-label="Main Navigation"
         >
-            <div className="container mx-auto px-6 flex justify-between items-center">
+            <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
 
-                {/* --- LOGO WOLF + TEXT (SEO Optimized Alt Tag) --- */}
-                <Link to="/" className="text-2xl font-bold text-white tracking-tight flex items-center gap-3 z-50" aria-label="Shree Dev Travels Home">
+                {/* --- LOGO WOLF + TEXT --- */}
+                {/* whitespace-nowrap lagaya hai taaki text tute nahi */}
+                <Link to="/" className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-2 md:gap-3 z-50 whitespace-nowrap" aria-label="Shree Dev Travels Home">
                     <img
                         src="/wolf-logo.png"
                         alt="Shree Dev Tour and Travel - Best Taxi in Jodhpur"
-                        className="w-10 h-10 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)] border border-blue-500/40"
+                        className="w-9 h-9 md:w-10 md:h-10 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)] border border-blue-500/40"
                     />
-                    <span>SHREE DEV <span className="text-blue-500">TRAVELS JODHPUR</span></span>
+                    <span>SHREE DEV <span className="text-blue-500">TRAVELS</span></span>
                 </Link>
 
-                {/* DESKTOP MENU (SEO Optimized Labels) */}
-                <div className="hidden md:flex items-center gap-8">
+                {/* DESKTOP MENU (Changed md:flex to lg:flex for better fit under 1280px) */}
+                <div className="hidden lg:flex items-center gap-5 xl:gap-8">
                     <NavLink to="/" text="Home" />
-                    <NavLink to="/services" text="Premium Fleet" /> {/* Keyword rich */}
-                    <NavLink to="/packages" text="Rajasthan Tours" /> {/* Keyword rich */}
-                    <NavLink to="/contact" text="Contact" />
+                    <NavLink to="/services" text="Premium Fleet" /> 
+                    <NavLink to="/packages" text="Rajasthan Tours" /> 
                     <NavLink to="/about" text="About" />
-                    <NavLink to="/privacy-policy" text="Privacy" />
-                    <NavLink to="/terms" text="Terms" />
                     <NavLink to="/faq" text="FAQ" />
-
+                    <NavLink to="/contact" text="Contact" />
+                    {/* Privacy & Terms Hata diye */}
 
                     <a
                         href="tel:8890472581"
                         title="Call for Cab Booking in Jodhpur"
-                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-blue-500/20 active:scale-95"
+                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-blue-500/20 active:scale-95 whitespace-nowrap"
                     >
                         <Phone size={18} /> Book Now
                     </a>
@@ -66,7 +70,7 @@ const Navbar = () => {
                 <button
                     aria-label="Toggle Menu"
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition z-50"
+                    className="lg:hidden text-white p-2 hover:bg-white/10 rounded-full transition z-50"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -79,20 +83,19 @@ const Navbar = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: '100vh', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="fixed inset-0 top-0 left-0 w-full h-screen bg-slate-900 md:hidden flex flex-col pt-24 px-6 z-40"
+                        // Added overflow-y-auto and pb-12 for proper scrolling on small phones
+                        className="fixed inset-0 top-0 left-0 w-full h-screen bg-slate-900 lg:hidden overflow-y-auto pt-24 px-6 pb-20 z-40"
                     >
-                        <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-5 min-h-max">
                             <MobileNavLink to="/" text="Home" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/services" text="Premium Cabs" onClick={() => setIsOpen(false)} />
                             <MobileNavLink to="/packages" text="Tour Packages" onClick={() => setIsOpen(false)} />
+                            <MobileNavLink to="/about" text="About Us" onClick={() => setIsOpen(false)}/>
+                            <MobileNavLink to="/faq" text="Travel FAQs" onClick={() => setIsOpen(false)}/>
                             <MobileNavLink to="/contact" text="Contact Support" onClick={() => setIsOpen(false)} />
-                            <MobileNavLink to="/about" text="About" onClick={() => setIsOpen(false)}/>
-                            <MobileNavLink to="/privacy-policy" text="Privacy" onClick={() => setIsOpen(false)}/>
-                            <MobileNavLink to="/terms" text="Terms" onClick={() => setIsOpen(false)}/>
-                            <MobileNavLink to="/faq" text="FAQ" onClick={() => setIsOpen(false)}/>
 
                             {/* Mobile Action Buttons (Optimized for Conversions) */}
-                            <div className="flex flex-col gap-3 mt-8">
+                            <div className="flex flex-col gap-3 mt-6">
                                 {/* Call Button */}
                                 <a
                                     href="tel:8890472581"
@@ -123,7 +126,7 @@ const Navbar = () => {
 const NavLink = ({ to, text }) => (
     <Link
         to={to}
-        className="text-slate-300 hover:text-white font-medium transition relative group"
+        className="text-slate-300 hover:text-white font-medium transition relative group whitespace-nowrap"
     >
         {text}
         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
@@ -134,7 +137,7 @@ const MobileNavLink = ({ to, text, onClick }) => (
     <Link
         to={to}
         onClick={onClick}
-        className="text-2xl font-semibold text-slate-300 hover:text-blue-400 border-b border-slate-700 pb-4"
+        className="text-2xl font-semibold text-slate-300 hover:text-blue-400 border-b border-slate-800 pb-3"
     >
         {text}
     </Link>
