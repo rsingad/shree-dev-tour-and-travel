@@ -16,7 +16,7 @@ const Packages = () => {
           "@type": "TouristTrip",
           "name": "Jodhpur Heritage & City Tour",
           "description": "Explore Mehrangarh Fort, Umaid Bhawan, and the Blue City in a premium cab.",
-          "provider": { "@type": "TravelAgency", "name": "Shree Dev Travels" }
+          "provider": { "@type": "TravelAgency", "name": "Shree Dev Tour And Travel" }
         }
       },
       {
@@ -26,7 +26,7 @@ const Packages = () => {
           "@type": "TouristTrip",
           "name": "Jaisalmer Desert Safari & Camp",
           "description": "Premium desert safari from Jodhpur to Sam Sand Dunes with camel ride and Swiss tent stay.",
-          "provider": { "@type": "TravelAgency", "name": "Shree Dev Travels" }
+          "provider": { "@type": "TravelAgency", "name": "Shree Dev Tour And Travel" }
         }
       }
     ]
@@ -37,7 +37,7 @@ const Packages = () => {
       
       {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>Jodhpur & Jaisalmer Tour Packages | Shree Dev Travels</title>
+        <title>Jodhpur & Jaisalmer Tour Packages | Shree Dev Tour And Travel</title>
         <meta name="description" content="Book premium Rajasthan tour packages. Enjoy Jaisalmer desert safari, Jodhpur city tours (Mehrangarh, Umaid Bhawan), and Jaipur sightseeing in luxury cabs." />
         <meta name="keywords" content="Jodhpur tour package, Jaisalmer desert safari from Jodhpur, Camel ride Jaisalmer, Mehrangarh Fort taxi, Rajasthan itineraries, Sam Sand Dunes camp booking, Jaipur sightseeing cab" />
         <script type="application/ld+json">
@@ -208,7 +208,7 @@ const PackageCard = ({ title, duration, price, image, locations, itinerary, seoA
 
         {/* Book Button */}
         <a 
-          href={`https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Travels,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(title)}%20Package.`}
+          href={`https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Tour%20And%20Travel,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(title)}%20Package.`}
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full bg-blue-600 hover:bg-blue-500 text-white text-center py-4 rounded-xl font-bold transition shadow-lg shadow-blue-600/20 active:scale-95"

@@ -23,7 +23,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const text = `*New Booking Enquiry - shreedevjodhpur.in*%0A-----------------------%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Travel Date:* ${formData.date}%0A*Requirement:* ${formData.message}`;
+    const text = `*New Booking Enquiry - www.shreedevjodhpur.in*%0A-----------------------%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Travel Date:* ${formData.date}%0A*Requirement:* ${formData.message}`;
     window.open(`https://wa.me/918890472581?text=${text}`, '_blank');
   };
 
@@ -33,8 +33,8 @@ const Contact = () => {
     "@type": "ContactPage",
     "mainEntity": {
       "@type": "LocalBusiness",
-      "name": "Shree Dev Travels Jodhpur",
-      "image": "https://shreedevjodhpur.in/wolf-logo.webp",
+      "name": "Shree Dev Tour And Travel Jodhpur",
+      "image": "https://www.shreedevjodhpur.in/shree-dev-tour-and-travel.webp",
       "telephone": "+918890472581",
       "email": "booking@shreedev.com",
       "address": {
@@ -51,9 +51,9 @@ const Contact = () => {
       
       {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>Contact Shree Dev Travels | Cab Booking in Jodhpur & Rajasthan</title>
+        <title>Contact Shree Dev Tour And Travel | Cab Booking in Jodhpur & Rajasthan</title>
         <meta name="description" content="Contact Shree Dev Tour and Travel Jodhpur for instant cab booking. 24/7 support for outstation taxis, Innova Crysta hire, and Rajasthan tour packages." />
-        <meta name="keywords" content="Contact travel agency Jodhpur, cab booking Jodhpur, hire taxi Jaisalmer, Shree Dev Travels contact number, Rajasthan tour booking, Force Urbania booking Jodhpur" />
+        <meta name="keywords" content="Contact travel agency Jodhpur, cab booking Jodhpur, hire taxi Jaisalmer, Shree Dev Tour And Travel contact number, Rajasthan tour booking, Force Urbania booking Jodhpur" />
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
         </script>
@@ -100,7 +100,7 @@ const Contact = () => {
               icon={<Phone className="text-blue-500" aria-hidden="true" />}
               title="Call for Instant Booking"
               desc={<>
-                <a href="tel:8890472581" title="Call Shree Dev Travels" className="block font-bold text-white hover:text-blue-400 transition text-lg">+91 88904-72581</a>
+                <a href="tel:8890472581" title="Call Shree Dev Tour And Travel" className="block font-bold text-white hover:text-blue-400 transition text-lg">+91 88904-72581</a>
                 <a href="tel:8290071304" title="Alternative Booking Number" className="block font-bold text-slate-400 hover:text-blue-400 transition">+91 82900-71304</a>
               </>}
             />
@@ -127,7 +127,7 @@ const Contact = () => {
           {/* Valid Google Map Embed (Local SEO Booster - Real Jodhpur Map Query) */}
           <div className="w-full h-64 bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-slate-700 mt-8 relative group" aria-label="Location Map">
             <iframe 
-              title="Shree Dev Travels Jodhpur Location"
+              title="Shree Dev Tour And Travel Jodhpur Location"
               src="https://maps.google.com/maps?q=Jodhpur,+Rajasthan&t=&z=13&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 

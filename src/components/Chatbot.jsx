@@ -12,7 +12,7 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState('hi-IN'); 
   const [messages, setMessages] = useState([
-    { id: 1, text: "Khamma Ghani sa! 🙏 Main Raju bol raha hu Shree Dev Travels se. Rajasthan ghumne ka man bana liya? Aapka shubh naam kya hai?", sender: 'bot' }
+    { id: 1, text: "Khamma Ghani sa! 🙏 Main Raju bol raha hu Shree Dev Tour And Travel se. Rajasthan ghumne ka man bana liya? Aapka shubh naam kya hai?", sender: 'bot' }
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);

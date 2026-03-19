@@ -9,7 +9,7 @@ const Terms = () => {
       
       {/* --- SEO HELMET --- */}
       <Helmet>
-        <title>Terms & Conditions | Shree Dev Travels Jodhpur</title>
+        <title>Terms & Conditions | Shree Dev Tour And Travel Jodhpur</title>
         <meta name="description" content="Read the Terms and Conditions for booking cabs and tour packages with Shree Dev Tour and Travel in Rajasthan." />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
@@ -90,7 +90,7 @@ const Terms = () => {
               <AlertTriangle size={24} className="text-blue-500" /> 4. Unforeseen Circumstances
             </h2>
             <p className="text-slate-400 leading-relaxed">
-              In case of a vehicle breakdown during the journey, Shree Dev Travels will make every effort to provide an alternate vehicle of similar standard in the shortest possible time. However, we are not liable for any delays or missed flights/trains caused by traffic, weather, or mechanical failures.
+              In case of a vehicle breakdown during the journey, Shree Dev Tour And Travel will make every effort to provide an alternate vehicle of similar standard in the shortest possible time. However, we are not liable for any delays or missed flights/trains caused by traffic, weather, or mechanical failures.
             </p>
           </section>
 

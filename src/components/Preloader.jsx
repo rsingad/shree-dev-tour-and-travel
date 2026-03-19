@@ -48,8 +48,8 @@ const Preloader = ({ onComplete }) => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          src="/wolf-logo.webp" // Nayi optimized file use karein
-          alt="Shree Dev Travels Logo"
+          src="/shree-dev-tour-and-travel.webp" // Nayi optimized file use karein
+          alt="Shree Dev Tour And Travel Logo"
           width="96"  // width aur height fix karne se CLS sudhrega
           height="96"
           fetchpriority="high" // Browser ko batayein ki ye sabse zaroori hai
@@ -63,7 +63,7 @@ const Preloader = ({ onComplete }) => {
           transition={{ delay: 0.2 }}
           className="text-4xl md:text-6xl font-bold tracking-tighter mb-2"
         >
-          SHREE DEV <span className="text-blue-500">TRAVELS</span>
+          SHREE DEV <span className="text-blue-500">TOUR AND TRAVEL</span>
         </motion.h1>
 
         {/* Dynamic Loading Text - Premium Feel */}

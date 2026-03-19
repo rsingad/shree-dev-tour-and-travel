@@ -1,4 +1,4 @@
-# 🐺 Shree Dev Travels - Premium 3D & AI-Powered Travel Portal
+# 🐺 Shree Dev Tour And Travel - Premium 3D & AI-Powered Travel Portal
 
 ![React](https://img.shields.io/badge/React-19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Three.js](https://img.shields.io/badge/Three.js-3D_Engine-black?style=for-the-badge&logo=three.js&logoColor=white)
@@ -83,7 +83,7 @@ public/
 ├── cars.glb              # 3D Asset
 ├── sitemap.xml           # Google Crawl Map
 ├── robots.txt            # Bot Directives
-└── wolf-logo.png         # Brand Identity
+└── shree-dev-tour-and-travel.webp  # Brand Identity
 
 🤖 How the AI Salesman Works
 Selection: User selects their language (e.g., Hindi) from the chatbot header.

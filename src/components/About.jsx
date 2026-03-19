@@ -12,7 +12,7 @@ const About = () => {
       "@type": "TravelAgency",
       "name": "Shree Dev Tour & Travels",
       "description": "Leading travel agency and premium car rental service in Jodhpur, Rajasthan with over a decade of local expertise.",
-      "url": "https://shreedevjodhpur.in/about",
+      "url": "https://www.shreedevjodhpur.in/about",
       "founder": {
         "@type": "Person",
         "name": "Raju Bhai"
@@ -29,9 +29,9 @@ const About = () => {
       
       {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>About Us | Best Travel Agency in Jodhpur - Shree Dev Travels</title>
-        <meta name="description" content="Learn about Shree Dev Travels, Jodhpur's most trusted travel agency. Discover our story, our premium fleet, and our commitment to safe Rajasthan tours." />
-        <meta name="keywords" content="About Shree Dev Travels, Jodhpur travel agency, Best tour operator Rajasthan, Raju bhai Jodhpur taxi, reliable cab service Jodhpur" />
+        <title>About Us | Best Travel Agency in Jodhpur - Shree Dev Tour And Travel</title>
+        <meta name="description" content="Learn about Shree Dev Tour And Travel, Jodhpur's most trusted travel agency. Discover our story, our premium fleet, and our commitment to safe Rajasthan tours." />
+        <meta name="keywords" content="About Shree Dev Tour And Travel, Jodhpur travel agency, Best tour operator Rajasthan, Raju bhai Jodhpur taxi, reliable cab service Jodhpur" />
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
         </script>
@@ -58,7 +58,7 @@ const About = () => {
             </span>
           </h1>
           <p className="text-slate-400 text-lg md:text-xl leading-relaxed">
-            Namaste! 🙏 Welcome to Shree Dev Travels. Born in the heart of the Blue City (Jodhpur), our mission is to show you the real royalty, culture, and colors of Rajasthan with unmatched comfort and safety.
+            Namaste! 🙏 Welcome to Shree Dev Tour And Travel. Born in the heart of the Blue City (Jodhpur), our mission is to show you the real royalty, culture, and colors of Rajasthan with unmatched comfort and safety.
           </p>
         </motion.div>
       </section>
@@ -75,7 +75,7 @@ const About = () => {
           >
             <h2 className="text-3xl font-bold text-white mb-4">Crafting Unforgettable Journeys Since Day One</h2>
             <p className="text-slate-400 leading-relaxed text-lg">
-              Started by <strong>Raju Ji</strong>, a passionate local from Rajasthan, Shree Dev Travels began with a simple vision: to eliminate the hidden costs and poor service standard in the local taxi market. 
+              Started by <strong>Raju Ji</strong>, a passionate local from Rajasthan, Shree Dev Tour And Travel began with a simple vision: to eliminate the hidden costs and poor service standard in the local taxi market. 
             </p>
             <p className="text-slate-400 leading-relaxed text-lg">
               Today, we pride ourselves on managing a premium fleet of <strong>Innova Crystas, Force Urbanias</strong>, and comfortable sedans. Whether it's navigating the narrow streets of Jodhpur to reach Mehrangarh Fort, or conquering the Sam Sand Dunes in Jaisalmer, our highly trained drivers act as your personal local guides.
@@ -117,7 +117,7 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why We Stand Out</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">We don't just rent cars; we build relationships. Here is what makes Shree Dev Travels the top choice in Jodhpur.</p>
+            <p className="text-slate-400 max-w-2xl mx-auto">We don't just rent cars; we build relationships. Here is what makes Shree Dev Tour And Travel the top choice in Jodhpur.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -166,7 +166,7 @@ const About = () => {
           </p>
           
           <a 
-            href="https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Travels,%20I%20visited%20your%20About%20page%20and%20want%20to%20plan%20a%20trip."
+            href="https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Tour%20And%20Travel,%20I%20visited%20your%20About%20page%20and%20want%20to%20plan%20a%20trip."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-10 py-4 rounded-full transition shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] relative z-10 hover:-translate-y-1 active:scale-95"

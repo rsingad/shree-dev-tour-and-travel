@@ -7,14 +7,14 @@ import FAQ from './FAQ';
 import TopRoutes from './TopRoutes';
 
 
-const WOLF_LOGO = "/wolf-logo.webp";
+const WOLF_LOGO = "/shree-dev-tour-and-travel.webp";
 
 const FutureHome = () => {
   return (
     <div className="relative w-full min-h-screen bg-slate-900 text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
 
       <Helmet>
-        <title>Best Taxi Service in Jodhpur & Jaisalmer Tour | Shree Dev Travels</title>
+        <title>Best Taxi Service in Jodhpur & Jaisalmer Tour | Shree Dev Tour And Travel</title>
         <meta name="description" content="Book the best taxi service in Jodhpur. Rent Innova Crysta, Force Urbania for local sightseeing, Mehrangarh fort, and Jaisalmer desert safari. Affordable per km rates." />
       </Helmet>
 
@@ -43,7 +43,7 @@ const FutureHome = () => {
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
               Shree Dev <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                Travels
+                Tour And Travel
               </span>
             </h1>
 
@@ -70,7 +70,7 @@ const FutureHome = () => {
               <div className="absolute inset-0 bg-blue-500/20 blur-[60px] group-hover:bg-blue-500/40 transition-all duration-500"></div>
               <img
                 src={WOLF_LOGO}
-                alt="Shree Dev Travels Wolf Logo"
+                alt="Shree Dev Tour And Travel Wolf Logo"
                 // Width aur Height attributes zaroor dein (Pixels mein)
                 width="450"
                 height="450"

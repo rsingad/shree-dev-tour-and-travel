@@ -9,7 +9,7 @@ const Privacy = () => {
       
       {/* --- SEO HELMET --- */}
       <Helmet>
-        <title>Privacy Policy | Shree Dev Travels Jodhpur</title>
+        <title>Privacy Policy | Shree Dev Tour And Travel Jodhpur</title>
         <meta name="description" content="Read the Privacy Policy of Shree Dev Tour and Travel. Learn how we protect your personal data, booking information, and ensure a secure experience." />
         <meta name="robots" content="noindex, follow" /> {/* Privacy pages mostly noindex rakhte hain SEO focus main pages par rakhne ke liye */}
       </Helmet>
@@ -50,7 +50,7 @@ const Privacy = () => {
               <Eye size={24} className="text-blue-500" /> Introduction
             </h2>
             <p className="text-slate-400 leading-relaxed">
-              Welcome to <strong>Shree Dev Tour and Travel</strong> ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website (<strong>shreedevjodhpur.in</strong>) or book our taxi and tour services in Rajasthan.
+              Welcome to <strong>Shree Dev Tour and Travel</strong> ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website (<strong>www.shreedevjodhpur.in</strong>) or book our taxi and tour services in Rajasthan.
             </p>
           </section>
 

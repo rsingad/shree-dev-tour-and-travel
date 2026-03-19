@@ -13,19 +13,19 @@ const TopRoutes = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Jodhpur Local Sightseeing & Mehrangarh Tour",
-        "url": "https://shreedevjodhpur.in/packages"
+        "url": "https://www.shreedevjodhpur.in/packages"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Jaisalmer Desert Safari & Sand Dunes Camp",
-        "url": "https://shreedevjodhpur.in/packages"
+        "url": "https://www.shreedevjodhpur.in/jodhpur-to-jaisalmer-taxi"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Jaipur Outstation Cab & Pink City Tour",
-        "url": "https://shreedevjodhpur.in/packages"
+        "url": "https://www.shreedevjodhpur.in/jodhpur-to-jaipur-taxi"
       }
     ]
   };
@@ -62,8 +62,8 @@ const TopRoutes = () => {
             tag="Sand Dunes & Camel Ride" 
             image="https://images.pexels.com/photos/30573733/pexels-photo-30573733.jpeg"
             seoAlt="Jaisalmer desert safari tour packages from Jodhpur"
-            linkTo="/packages"
-            linkTitle="Book Jaisalmer Desert Safari Packages"
+            linkTo="/jodhpur-to-jaisalmer-taxi"
+            linkTitle="Book Jaisalmer Taxi Packages"
           />
           {/* Jaipur */}
           <DestinationCard 
@@ -71,7 +71,7 @@ const TopRoutes = () => {
             tag="Amber Fort & Pink City" 
             image="https://images.pexels.com/photos/2588193/pexels-photo-2588193.jpeg"
             seoAlt="Jaipur to Jodhpur outstation cab service"
-            linkTo="/packages"
+            linkTo="/jodhpur-to-jaipur-taxi"
             linkTitle="Hire Outstation Cabs for Jaipur Tour"
           />
         </div>

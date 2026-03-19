@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Users, Briefcase, Snowflake, Phone, MessageCircle, Shield, Zap } from 'lucide-react';
+import { Users, Briefcase, Snowflake, Phone, MessageCircle, Shield, Zap, Map, Clock, Building, Plane } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const Services = () => {
@@ -10,7 +10,7 @@ const Services = () => {
     "@context": "https://schema.org",
     "@type": "AutoRental",
     "name": "Shree Dev Tour & Travels Fleet",
-    "url": "https://shreedevjodhpur.in/services",
+    "url": "https://www.shreedevjodhpur.in/services",
     "telephone": "+918890472581",
     "priceRange": "₹10 - ₹28 per km",
     "address": {
@@ -34,6 +34,18 @@ const Services = () => {
         {
           "@type": "Offer",
           "itemOffered": { "@type": "Service", "name": "Maruti Dzire Taxi" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Toyota Etios Taxi" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Tempo Traveller" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Toyota Fortuner on Rent" }
         }
       ]
     }
@@ -44,7 +56,7 @@ const Services = () => {
       
       {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
-        <title>Hire Innova Crysta & Force Urbania in Jodhpur | Shree Dev Travels</title>
+        <title>Hire Innova Crysta & Force Urbania in Jodhpur | Shree Dev Tour And Travel</title>
         <meta name="description" content="Looking for premium cabs in Jodhpur? Rent Innova Crysta, Force Urbania, or Sedans at the best per-km rates. Safe, sanitized, and GPS-enabled outstation taxis." />
         <meta name="keywords" content="Innova Crysta rent Jodhpur, Force Urbania taxi Rajasthan, hire Innova in Jodhpur, premium cab Jodhpur, Jodhpur to Jaisalmer taxi, 12 seater Urbania Jodhpur, best car rental Rajasthan" />
         <script type="application/ld+json">
@@ -68,7 +80,8 @@ const Services = () => {
       </div>
 
       {/* --- FLEET GRID --- */}
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 mb-24">
+        <h2 className="text-3xl font-bold text-white mb-10 text-center">Meet Our <span className="text-blue-500">Fleet</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           
           <PhysicsFleetCard 
@@ -102,11 +115,82 @@ const Services = () => {
             accent="from-blue-600 to-slate-900"
             seoAlt="Maruti Dzire Etios taxi service in Jodhpur"
           />
+
+          <PhysicsFleetCard 
+            title="Comfort Sedan"
+            model="Toyota Etios"
+            price="₹10 - ₹11"
+            image="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg"
+            specs={{ seats: '4 Pax', bags: '2 Bags', type: 'Outstation' }}
+            accent="from-indigo-600 to-slate-900"
+            seoAlt="Toyota Etios taxi service in Jodhpur"
+          />
+
+          <PhysicsFleetCard 
+            title="Group Traveler"
+            model="Tempo Traveller"
+            price="₹20 - ₹24"
+            image="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
+            specs={{ seats: '10-14 Pax', bags: '6 Bags', type: 'Group Tour' }}
+            accent="from-teal-600 to-slate-900"
+            seoAlt="Tempo Traveller on rent in Jodhpur"
+          />
+
+          <PhysicsFleetCard 
+            title="Ultra Luxury SUV"
+            model="Toyota Fortuner"
+            price="₹35 - ₹40"
+            image="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg"
+            specs={{ seats: '6 Pax', bags: '4 Bags', type: 'VIP Travel' }}
+            accent="from-rose-600 to-slate-900"
+            seoAlt="Toyota Fortuner on rent in Jodhpur"
+          />
         </div>
       </div>
+
+      {/* --- NEW SECTION: SERVICE TYPES --- */}
+      <div className="container mx-auto px-6 mb-16">
+        <h2 className="text-3xl font-bold text-white mb-4 text-center">Comprehensive <span className="text-blue-500">Travel Solutions</span></h2>
+        <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">Beyond car rentals, we provide end-to-end transportation services tailored for tourists, business travelers, and locals in Rajasthan.</p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ServiceTypeCard 
+                icon={<Map size={32} className="text-blue-500" />}
+                title="Local Sightseeing"
+                desc="Explore Jodhpur's Umaid Bhawan, Mehrangarh Fort, and Clock Tower with our knowledgeable local drivers."
+            />
+            <ServiceTypeCard 
+                icon={<Clock size={32} className="text-cyan-500" />}
+                title="Outstation Tours"
+                desc="Multi-day trips to Jaisalmer, Udaipur, Mount Abu, and Jaipur with pre-planned itineraries and comfortable rides."
+            />
+            <ServiceTypeCard 
+                icon={<Plane size={32} className="text-teal-500" />}
+                title="Airport/Station Drops"
+                desc="Punctual pickup and drop-off services for Jodhpur Airport and Railway Station. 24/7 availability."
+            />
+            <ServiceTypeCard 
+                icon={<Building size={32} className="text-indigo-500" />}
+                title="Corporate Tie-ups"
+                desc="Premium fleet for business meetings, conferences, and event transportation with professional chauffeurs."
+            />
+        </div>
+      </div>
+
     </div>
   );
 };
+
+// --- NEW COMPONENT: SERVICE TYPE CARD ---
+const ServiceTypeCard = ({ icon, title, desc }) => (
+    <div className="bg-slate-800/40 border border-slate-700/50 p-8 rounded-2xl hover:bg-slate-800 transition-colors duration-300">
+        <div className="bg-slate-900 w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg border border-slate-700/50 group-hover:scale-110 transition-transform">
+            {icon}
+        </div>
+        <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+        <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+    </div>
+);
 
 // --- 3D INTERACTIVE CARD COMPONENT ---
 const PhysicsFleetCard = ({ title, model, price, image, specs, isPopular, accent, seoAlt }) => {
@@ -137,7 +221,7 @@ const PhysicsFleetCard = ({ title, model, price, image, specs, isPopular, accent
   };
 
   // Smart WhatsApp Link with Context
-  const waLink = `https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Travels,%20I%20want%20to%20enquire%20about%20booking%20the%20${encodeURIComponent(model)}%20(${encodeURIComponent(title)})%20for%20a%20Rajasthan%20trip.`;
+  const waLink = `https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Tour%20And%20Travel,%20I%20want%20to%20enquire%20about%20booking%20the%20${encodeURIComponent(model)}%20(${encodeURIComponent(title)})%20for%20a%20Rajasthan%20trip.`;
 
   return (
     <div 

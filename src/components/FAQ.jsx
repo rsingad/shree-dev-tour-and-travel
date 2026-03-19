@@ -13,7 +13,7 @@ const FAQ = () => {
         "name": "What is the Innova Crysta fare from Jaipur to Jodhpur?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The per-km fare for an Innova Crysta from Jaipur to Jodhpur is approximately ₹14 to ₹16. Shree Dev Travels provides transparent pricing with no hidden charges, making us a reliable alternative to expensive Jodhpur tour operators."
+          "text": "The per-km fare for an Innova Crysta from Jaipur to Jodhpur is approximately ₹14 to ₹16. Shree Dev Tour And Travel provides transparent pricing with no hidden charges, making us a reliable alternative to expensive Jodhpur tour operators."
         }
       },
       {
@@ -46,7 +46,7 @@ const FAQ = () => {
   const faqs = [
     {
       q: "What is the Innova Crysta fare from Jaipur to Jodhpur?",
-      a: "The per-km fare for an Innova Crysta from Jaipur to Jodhpur is approximately ₹14 to ₹16. Looking for a reliable and affordable alternative to expensive Jodhpur tour operators? Choose Shree Dev Travels for transparent billing with no hidden driver bata."
+      a: "The per-km fare for an Innova Crysta from Jaipur to Jodhpur is approximately ₹14 to ₹16. Looking for a reliable and affordable alternative to expensive Jodhpur tour operators? Choose Shree Dev Tour And Travel for transparent billing with no hidden driver bata."
     },
     {
       q: "Is Force Urbania comfortable for a 10-15 person trip in Rajasthan?",

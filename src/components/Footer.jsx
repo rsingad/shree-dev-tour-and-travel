@@ -12,9 +12,9 @@ const Footer = () => {
 
           {/* Column 1: Brand Info & Logo */}
           <div className="space-y-6 lg:col-span-1">
-            <Link to="/" className="flex items-center justify-center sm:justify-start gap-3" aria-label="Shree Dev Travels Home">
+            <Link to="/" className="flex items-center justify-center sm:justify-start gap-3" aria-label="Shree Dev Tour And Travel Home">
               <img
-                src="/wolf-logo.webp" // Naya optimized format
+                src="/shree-dev-tour-and-travel.webp" // Naya optimized format
                 alt="Shree Dev Tour and Travel Logo - Best Jodhpur Taxi"
                 width="48"  // w-12 = 48px
                 height="48" // h-12 = 48px
@@ -22,7 +22,7 @@ const Footer = () => {
                 className="w-12 h-12 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)] border border-blue-500/20"
               />
               <h3 className="text-2xl font-bold text-white tracking-tight">
-                SHREE DEV <span className="text-blue-500">TRAVELS</span>
+                SHREE DEV <span className="text-blue-500">TOUR AND TRAVEL</span>
               </h3>
             </Link>
             {/* SEO Optimized Description (Jodhpur focused) */}
@@ -56,10 +56,13 @@ const Footer = () => {
           <nav aria-label="Top Tour Routes">
             <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">Top Routes</h3>
             <ul className="space-y-3">
-              <FooterLink to="/services" text="Jodhpur to Jaisalmer Taxi" />
-              <FooterLink to="/packages" text="Best Desert Safari Camp" />
-              <FooterLink to="/services" text="Hire Force Urbania Jodhpur" />
-              <FooterLink to="/packages" text="Mehrangarh & Umaid Tours" />
+              <FooterLink to="/taxi-in-jodhpur" text="Taxi in Jodhpur" />
+              <FooterLink to="/jodhpur-sightseeing-taxi" text="Jodhpur Sightseeing Taxi" />
+              <FooterLink to="/jodhpur-to-jaisalmer-taxi" text="Jodhpur to Jaisalmer Taxi" />
+              <FooterLink to="/jodhpur-to-jaipur-taxi" text="Jodhpur to Jaipur Taxi" />
+              <FooterLink to="/jodhpur-to-udaipur-taxi" text="Jodhpur to Udaipur Taxi" />
+              <FooterLink to="/innova-crysta-hire-jodhpur" text="Innova Crysta Hire Jodhpur" />
+              <FooterLink to="/tempo-traveller-jodhpur" text="Tempo Traveller on Rent" />
             </ul>
           </nav>
 
@@ -78,7 +81,7 @@ const Footer = () => {
                 <div className="flex items-center gap-2 text-blue-500 font-bold">
                   <Phone size={18} aria-hidden="true" /> 24/7 Cab Booking
                 </div>
-                <a href="tel:8890472581" className="text-white hover:text-blue-400 transition text-lg font-semibold" title="Call Shree Dev Travels">
+                <a href="tel:8890472581" className="text-white hover:text-blue-400 transition text-lg font-semibold" title="Call Shree Dev Tour And Travel">
                   +91 88904-72581
                 </a>
                 <a href="https://wa.me/918290071304" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-green-500 hover:text-green-400 transition text-sm font-semibold" title="WhatsApp Us">
@@ -90,7 +93,7 @@ const Footer = () => {
                 <div className="flex items-center gap-2 text-blue-500 font-bold">
                   <Mail size={18} aria-hidden="true" /> Email Us
                 </div>
-                <a href="mailto:booking@shreedev.com" className="text-sm hover:text-white transition" title="Email Shree Dev Travels">
+                <a href="mailto:booking@shreedev.com" className="text-sm hover:text-white transition" title="Email Shree Dev Tour And Travel">
                   booking@shreedev.com
                 </a>
               </div>

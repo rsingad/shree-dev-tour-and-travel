@@ -38,9 +38,9 @@ const Navbar = () => {
 
                 {/* --- LOGO WOLF + TEXT --- */}
                 {/* whitespace-nowrap lagaya hai taaki text tute nahi */}
-                <Link to="/" className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-2 md:gap-3 z-50 whitespace-nowrap" aria-label="Shree Dev Travels Home">
+                <Link to="/" className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-2 md:gap-3 z-50 whitespace-nowrap" aria-label="Shree Dev Tour And Travel Home">
                     <img
-                        src="/wolf-logo.webp" // Naya optimized format
+                        src="/shree-dev-tour-and-travel.webp" // Naya optimized format
                         alt="Shree Dev Tour and Travel - Best Taxi in Jodhpur"
                         
                         width="40"
@@ -48,7 +48,7 @@ const Navbar = () => {
                         loading="eager" // Navbar hamesha turant dikhna chahiye
                         className="w-9 h-9 md:w-10 md:h-10 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)] border border-blue-500/40"
                     />
-                    <span>SHREE DEV <span className="text-blue-500">TRAVELS</span></span>
+                    <span>SHREE DEV <span className="text-blue-500">TOUR AND TRAVEL</span></span>
                 </Link>
 
                 {/* DESKTOP MENU (Changed md:flex to lg:flex for better fit under 1280px) */}
@@ -110,7 +110,7 @@ const Navbar = () => {
 
                                 {/* WhatsApp Button with Pre-filled message */}
                                 <a
-                                    href="https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Travels,%20I%20am%20looking%20for%20a%20taxi/tour%20package%20in%20Rajasthan."
+                                    href="https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Tour%20And%20Travel,%20I%20am%20looking%20for%20a%20taxi/tour%20package%20in%20Rajasthan."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex justify-center items-center gap-2 bg-green-600 hover:bg-green-500 text-white py-3 rounded-xl font-bold active:scale-95 transition shadow-lg shadow-green-600/20"

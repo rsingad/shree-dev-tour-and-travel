@@ -19,12 +19,12 @@ const BookingWidget = () => {
     const typeLabel = tripType === 'oneWay' ? 'One Way Trip' : 
                       tripType === 'roundTrip' ? 'Round Trip' : 'Rajasthan Tour Package';
     
-    // Defaulting to Jodhpur because of the domain shreedevjodhpur.in
+    // Defaulting to Jodhpur because of the domain www.shreedevjodhpur.in
     const finalFrom = fromLoc || 'Jodhpur';
     const finalTo = toLoc || 'Jaisalmer / Jaipur';
     const finalDate = travelDate || 'As soon as possible';
 
-    const message = `Hello Shree Dev Travels! 🚖\nI need a quotation for a cab:\n\n*Trip Type:* ${typeLabel}\n*Pickup:* ${finalFrom}\n*Drop:* ${finalTo}\n*Travel Date:* ${finalDate}\n\nPlease share the best per-km price for Innova Crysta or Force Urbania.`;
+    const message = `Hello Shree Dev Tour And Travel! 🚖\nI need a quotation for a cab:\n\n*Trip Type:* ${typeLabel}\n*Pickup:* ${finalFrom}\n*Drop:* ${finalTo}\n*Travel Date:* ${finalDate}\n\nPlease share the best per-km price for Innova Crysta or Force Urbania.`;
 
     const whatsappUrl = `https://wa.me/918890472581?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
