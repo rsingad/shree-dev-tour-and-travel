@@ -95,7 +95,7 @@ function App() {
           <ScrollToTop />
           <Navbar />
           
-          <div className="flex-grow">
+          <main className="flex-grow">
             <Routes>
               {/* FutureHome is the main landing page */}
               <Route path="/" element={<FutureHome />} />
@@ -116,7 +116,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
 
             </Routes>
-          </div>
+          </main>
           <Footer />
           <Chatbot />
           <Analytics />

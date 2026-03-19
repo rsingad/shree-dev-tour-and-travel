@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright & Legal Links Line */}
-        <div className="border-t border-slate-900 mt-16 pt-8 text-center flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+        <div className="border-t border-slate-900 mt-16 pt-8 text-center flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} Shree Dev Tour and Travel. All rights reserved.</p>
 
           {/* Legal Pages (Privacy & Terms) Added Here */}

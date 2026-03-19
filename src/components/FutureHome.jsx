@@ -108,7 +108,7 @@ const FutureHome = () => {
       <section className="bg-white text-slate-900 py-24 px-6">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <h3 className="text-blue-600 font-bold tracking-wider text-sm mb-2 uppercase">Why Choose Us</h3>
+            <div className="text-blue-600 font-bold tracking-wider text-sm mb-2 uppercase">Why Choose Us</div>
             <h2 className="text-4xl font-bold mb-6">Top-Rated Travel Agency <br />in Jodhpur.</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
               Expert guides for <strong>Mehrangarh Fort</strong>, <strong>Umaid Bhawan</strong>, and desert safaris in <strong>Jaisalmer</strong>.
@@ -135,7 +135,7 @@ const FutureHome = () => {
       <section className="bg-slate-950 py-24 px-6 border-t border-slate-800">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-emerald-400 font-bold tracking-widest text-sm uppercase mb-3">Handcrafted by Locals</h3>
+            <div className="text-emerald-400 font-bold tracking-widest text-sm uppercase mb-3">Handcrafted by Locals</div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Top Rated <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Rajasthan Tours</span></h2>
           </div>
           
@@ -168,7 +168,7 @@ const FutureHome = () => {
       {/* ================= SECTION 6: OUR PREMIUM FLEET ================= */}
       <section className="bg-slate-900 py-24 px-6 border-t border-slate-800">
          <div className="container mx-auto text-center">
-            <h3 className="text-blue-500 font-bold tracking-widest text-sm uppercase mb-3 flex items-center justify-center gap-2"><CarFront size={18}/> Travel in Luxury</h3>
+            <div className="text-blue-500 font-bold tracking-widest text-sm uppercase mb-3 flex items-center justify-center gap-2"><CarFront size={18}/> Travel in Luxury</div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-16">Our Premium Fleet</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -200,7 +200,7 @@ const FutureHome = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h3 className="text-amber-400 font-bold tracking-widest text-sm uppercase mb-3 flex items-center justify-center gap-2">Read Our Reviews</h3>
+            <div className="text-amber-400 font-bold tracking-widest text-sm uppercase mb-3 flex items-center justify-center gap-2">Read Our Reviews</div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">What Our Guests Say</h2>
             <p className="text-slate-400 max-w-2xl mx-auto">Trusted by thousands of travelers from across the globe for safety, comfort, and local expertise.</p>
           </div>
@@ -227,7 +227,7 @@ const FleetCard = ({ name, desc, img, seats }) => (
     </div>
     <div className="flex justify-between items-start mb-3">
       <h3 className="text-xl font-bold text-white">{name}</h3>
-      <span className="text-[10px] font-bold bg-blue-500/20 text-blue-400 px-2 flex items-center h-6 rounded-md uppercase tracking-wider">{seats}</span>
+      <span className="text-[10px] font-bold bg-blue-600 text-white px-2 flex items-center h-6 rounded-md uppercase tracking-wider">{seats}</span>
     </div>
     <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
   </div>
