@@ -6,36 +6,41 @@
 ![Groq AI](https://img.shields.io/badge/Groq_AI-Llama_3-orange?style=for-the-badge)
 ![SEO](https://img.shields.io/badge/SEO-Enterprise_Grade-brightgreen?style=for-the-badge)
 
-A next-generation travel agency website designed for **Shree Dev Tour and Travel (Jodhpur & Jaipur)**. 
-This project combines **High-Fidelity 3D Graphics**, a **Human-Like AI Salesman**, and **Enterprise-Grade Technical SEO** to create a futuristic and highly converting booking experience.
+A next-generation travel agency website and highly converting booking application designed for **Shree Dev Tour and Travel (Jodhpur & Jaipur)**. 
+This project combines **High-Fidelity 3D Graphics**, a **Human-Like AI Salesman**, an expansive **Tour Package System**, and **Enterprise-Grade Technical SEO** to dominate the local travel market in Rajasthan.
 
 ---
 
 ## ✨ Key Features
 
-### 🏎️ 3D Immersive Experience
+### 🗺️ 15+ Premium Rajasthan Tour Packages
+- **Curated Authentic Itineraries:** Detailed day-by-day plans for top destinations (Jodhpur, Jaisalmer, Udaipur, Ranthambore, Jawai, Khatu Shyam).
+- **15-Year Expert Persona:** Distinct "Local Expert" tips and knowledge baked into the UI to drastically increase user trust and bookings.
+- **Rich Media & Authentic Assets:** Photorealistic, high-res destination images hosted locally for lightning-fast speeds and high reliability.
+
+### 🏎️ 3D Immersive Experience & Premium Fleet
 - **Interactive Showroom:** Features a realistic 3D car model rendered using **React Three Fiber**.
-- **Performance Optimized:** Uses `AdaptiveDpr` and `ContactShadows` to ensure smooth 60FPS performance even on mobile devices.
-- **Cinematic Intro:** A sci-fi "System Boot" preloader animation.
+- **The Premium Fleet:** Detailed showcases for specialized vehicles like **Toyota Innova Crysta**, **Force Urbania**, and **Tempo Traveller**, matched with beautiful local UI imagery.
+- **Cinematic Intro:** A sci-fi "System Boot" preloader animation greeting visitors.
 
 ### 🤖 Smart AI Salesman (Voice-Enabled)
 - **Powered by Groq (Llama 3.3):** Uses the ultra-fast Llama-3.3-70b model for instant replies.
-- **Voice-to-Voice Interaction:** Users can talk to the bot via Microphone, and the bot replies with voice (Text-to-Speech) in multiple languages (Hindi, English, etc.).
-- **Intelligent Profiling:** The bot acts like a human manager—it asks about family, preferences, and suggests tour packages based on the conversation.
-- **Automated Lead Reporting:** Analyzes the chat history to generate a **"Psychological Client Report"** and sends it directly to the Business Owner's WhatsApp.
+- **Voice-to-Voice Interaction:** Users can talk to the bot via Microphone, generating responses in multiple languages including Hindi and English.
+- **Intelligent Profiling:** Asks about family, preferences, and suggests tour packages based on the conversation to heavily boost conversion.
+- **Automated Lead Reporting:** Analyzes the chat history to generate a **"Psychological Client Report"** and routes it directly to the Business Owner's WhatsApp.
 
-### 📈 Enterprise-Grade SEO & Legal Compliance
-- **Rich Snippet Schemas:** Integrated JSON-LD schemas (`LocalBusiness`, `FAQPage`, `ItemList`) for Zero-Click Google searches.
-- **Dynamic SEO:** Configured `sitemap.xml`, `robots.txt`, and canonical tags for perfect crawling.
-- **Trust & Legal Shield:** Complete with **About Us**, **Privacy Policy**, **Terms & Conditions**, and **Interactive FAQs** to comply with Google & Meta Ad policies.
-- **Custom 404 Routing:** Smart error handling for broken links to maintain domain authority.
+### 📈 Enterprise-Grade SEO & Local Trust
+- **Rich Snippet Schemas:** Extensive integration of JSON-LD schemas (`WebSite`, `TravelAgency`, `FAQPage`, `ItemList`) for Zero-Click Google searches.
+- **Dynamic SEO:** Configured `sitemap.xml`, `robots.txt`, and canonical tags alongside categorized `seo_keywords.txt` targeting high-intent long-tail keywords.
+- **High-Trust UI:** A dedicated **About Us** section highlighting the Founding Partners **Raju Gurjar**, **Dev Gurjar**, and **Deva Gurjar** using dynamic letter-avatars.
+- **Legal Compliance:** Completed with **Privacy Policy**, **Terms & Conditions**, and **Interactive FAQs** complying with Google & Meta Ad policies.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Frontend:** React.js (Vite), React Router DOM
-- **Styling & Animations:** Tailwind CSS, Framer Motion
+- **Styling & Animations:** Tailwind CSS, Framer Motion, Lucide-React
 - **3D Engine:** Three.js, React Three Fiber, Drei
 - **AI Integration:** Groq API (Llama-3.3-70b-versatile)
 - **Speech Engine:** `react-speech-recognition` & Web Speech API
@@ -48,66 +53,66 @@ This project combines **High-Fidelity 3D Graphics**, a **Human-Like AI Salesman*
 Follow these steps to run the project locally.
 
 ### 1. Clone the Repository
-```bash
-git clone [https://github.com/rsingad/shree-dev-travels.git](https://github.com/rsingad/shree-dev-travels.git)
+\`\`\`bash
+git clone https://github.com/rsingad/shree-dev-travels.git
 cd shree-dev-travels
-2. Install Dependencies
-Important: Since this project uses React 19, use the legacy peer deps flag.
-npm install --legacy-peer-deps
-3. Setup Environment Variables
-Create a .env file in the root directory and add your Groq API Key:
-VITE_GROQ_API_KEY=gsk_your_secret_key_here
-4. Add 3D Asset
-5. Run the Project
-npm run dev
+\`\`\`
 
+### 2. Install Dependencies
+Important: Since this project uses React 19, use the legacy peer deps flag.
+\`\`\`bash
+npm install --legacy-peer-deps
+\`\`\`
+
+### 3. Setup Environment Variables
+Create a \`.env\` file in the root directory and add your Groq API Key:
+\`\`\`env
+VITE_GROQ_API_KEY=gsk_your_secret_key_here
+\`\`\`
+
+### 4. Add 3D Asset
+Ensure your \`/public/cars.glb\` is correctly placed to power the React Three Fiber canvas.
+
+### 5. Run the Project
+\`\`\`bash
+npm run dev
+\`\`\`
+
+---
+
+## 📂 Project Structure
+
+\`\`\`text
 src/
 ├── components/
 │   ├── Chatbot.jsx       # The AI Brain (Voice + Logic + Report Gen)
-│   ├── FutureHome.jsx    # 3D Hero Section & Main Landing
+│   ├── FutureHome.jsx    # Complete Homepage with Testimonials & Fleet
 │   ├── TopRoutes.jsx     # SEO ItemList Schema injected routes
-│   ├── Packages.jsx      # Tour Itineraries
-│   ├── Services.jsx      # Physics-based Fleet Cards
-│   ├── FAQ.jsx           # FAQPage Schema for Google Snippets
-│   ├── About.jsx         # E-E-A-T Trust Building Page
+│   ├── Packages.jsx      # Complex Tour Itineraries UI
+│   ├── Services.jsx      # Physics-based Premium Fleet Catalog
+│   ├── FAQ.jsx           # Expandable FAQPage with Schema
+│   ├── About.jsx         # E-E-A-T Trust Building & Founding Partners
 │   ├── Privacy.jsx       # Ad-Compliant Privacy Policy
 │   ├── Terms.jsx         # Booking & Cancellation Terms
 │   ├── Contact.jsx       # Contact Form & Maps
 │   ├── Footer.jsx        # Smart Internal Linking
-│   ├── Navbar.jsx        # Floating Glass Navbar
-│   ├── NotFound.jsx      # 404 Error Handler
+│   ├── Navbar.jsx        # Floating Glass Navbar with Mobile CTA
 │   └── Preloader.jsx     # Sci-Fi Loading Screen
+├── data/
+│   └── packagesData.js   # 15+ Localized Rajasthan Tour Data
 ├── App.jsx               # Main React Router & Helmet Meta Tags
 ├── main.jsx              # Entry Point
-public/
-├── cars.glb              # 3D Asset
-├── sitemap.xml           # Google Crawl Map
-├── robots.txt            # Bot Directives
-└── shree-dev-tour-and-travel.webp  # Brand Identity
+\`\`\`
 
-🤖 How the AI Salesman Works
-Selection: User selects their language (e.g., Hindi) from the chatbot header.
+---
 
-Conversation: User speaks via Mic: "Jaipur ghumne ka plan hai."
+## 🛡️ Security Note
+The API Key is secured using Environment Variables. Ensure \`.env\` is added to your \`.gitignore\` file to prevent leaking secrets on GitHub.
 
-Processing: - Speech is converted to text.
+## 📞 Contact & Support
+**Shree Dev Tour and Travel** 📍 Jodhpur, Rajasthan
 
-Sent to Groq API with a "Human Salesman" system prompt.
+- **Owners & Managing Partners:** Raju Gurjar, Dev Gurjar, Deva Gurjar
+- **Contact:** +91 88904-72581
 
-AI analyzes intent (Budget vs Luxury) and replies in the selected language.
-
-Closing: When the user is ready, they click "Send Booking Report".
-
-Reporting: The AI summarizes the entire chat into a professional lead report and opens the Owner's WhatsApp with the details pre-filled.
-
-🛡️ Security Note
-The API Key is secured using Environment Variables. Ensure .env is added to your .gitignore file to prevent leaking secrets on GitHub.
-.env
-node_modules
-dist
-
-📞 Contact & Support
-Shree Dev Tour and Travel 📍 Jaipur, Rajasthan
-
-📞 Owner: +91 88904-72581
-Made  ❤️ by ramesh singad
+*Made with ❤️ by Ramesh Singad*

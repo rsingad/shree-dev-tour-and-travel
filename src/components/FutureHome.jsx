@@ -122,10 +122,10 @@ const FutureHome = () => {
 
           <div className="relative h-[400px] bg-slate-100 rounded-[2rem] overflow-hidden shadow-2xl">
             <img
-              src="https://images.pexels.com/photos/11750442/pexels-photo-11750442.jpeg"
+              src="/pkg12_kumbhalgarh.jpg"
               className="w-full h-full object-cover"
               alt="Tourists in Rajasthan"
-              loading="lazy"
+              fetchpriority="high"
             />
           </div>
         </div>

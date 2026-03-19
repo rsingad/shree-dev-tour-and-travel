@@ -42,6 +42,9 @@ const Navbar = () => {
                         src="/shree-dev-tour-and-travel.webp"
                         alt="Shree Dev Tour and Travel Logo"
                         loading="eager"
+                        fetchpriority="high"
+                        width="160"
+                        height="60"
                         className="h-25 md:h-30 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                     />
                 </Link>
