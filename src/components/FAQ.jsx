@@ -39,6 +39,22 @@ const FAQ = () => {
           "@type": "Answer",
           "text": "A perfect 3-day Jaisalmer trip includes: Day 1 - Travel from Jodhpur and visit the Golden Fort & Gadisar Lake. Day 2 - Jeep safari, Camel ride, and night stay in Swiss Tents at Sam Sand Dunes. Day 3 - Return journey. We offer customized cab packages for this exact route."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer Jawai Leopard Safari packages from Jodhpur?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Jawai is one of our most popular new packages. We provide comfortable premium cabs from Jodhpur to Jawai Bandh, including luxury tent stays and guaranteed leopard spotting safaris with expert local knowledge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best time to visit Rajasthan for a desert safari?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best time to book a Jaisalmer desert safari or a Rajasthan tour package is between October and March. The weather is cool and perfect for local sightseeing, forts exploration, and night camps."
+        }
       }
     ]
   };
@@ -59,6 +75,14 @@ const FAQ = () => {
     {
       q: "How to plan a 3-day family trip to Jaisalmer from Jodhpur?",
       a: "A perfect 3-day itinerary: Day 1 - Travel from Jodhpur, visit the Golden Fort & Patwon ki Haveli. Day 2 - Desert experience at Sam Sand Dunes with Jeep safari, Camel ride, and night stay in Swiss Tents. Day 3 - Safe return journey. We provide complete taxi packages for this route."
+    },
+    {
+      q: "Do you offer Jawai Leopard Safari packages from Jodhpur?",
+      a: "Yes! Jawai is one of our most popular new packages. We provide comfortable cabs from Jodhpur to Jawai Bandh, including luxury tent stays and guaranteed leopard spotting safaris with extreme local precision."
+    },
+    {
+      q: "What is the best time to visit Rajasthan for a desert safari?",
+      a: "The best time to book a Jaisalmer desert safari or Rajasthan tour package is between October and March. The weather is perfectly cool for exploring the forts and enjoying a relaxing night camp in the dunes."
     }
   ];
 

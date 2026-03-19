@@ -36,19 +36,14 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
 
-                {/* --- LOGO WOLF + TEXT --- */}
-                {/* whitespace-nowrap lagaya hai taaki text tute nahi */}
-                <Link to="/" className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-2 md:gap-3 z-50 whitespace-nowrap" aria-label="Shree Dev Tour And Travel Home">
+                {/* --- IMAGE BRANDING LOGO --- */}
+                <Link to="/" className="flex items-center z-50" aria-label="Shree Dev Tour And Travel Home">
                     <img
-                        src="/shree-dev-tour-and-travel.webp" // Naya optimized format
-                        alt="Shree Dev Tour and Travel - Best Taxi in Jodhpur"
-                        
-                        width="40"
-                        height="40"
-                        loading="eager" // Navbar hamesha turant dikhna chahiye
-                        className="w-9 h-9 md:w-10 md:h-10 object-contain rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)] border border-blue-500/40"
+                        src="/shree-dev-tour-and-travel.webp"
+                        alt="Shree Dev Tour and Travel Logo"
+                        loading="eager"
+                        className="h-25 md:h-30 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                     />
-                    <span>SHREE DEV <span className="text-blue-500">TOUR AND TRAVEL</span></span>
                 </Link>
 
                 {/* DESKTOP MENU (Changed md:flex to lg:flex for better fit under 1280px) */}

@@ -2,6 +2,8 @@ import React, { useState, useId } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, Clock, Calendar, CheckCircle, ChevronDown, ChevronUp, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { packagesData } from '../data/packagesData';
+import FAQ from './FAQ';
 
 const Packages = () => {
   // JSON-LD Schema for Tour Packages (High SEO Value)
@@ -34,7 +36,7 @@ const Packages = () => {
 
   return (
     <div className="bg-slate-900 min-h-screen text-white pt-20 font-sans selection:bg-blue-500/30">
-      
+
       {/* --- ADVANCED SEO HELMET --- */}
       <Helmet>
         <title>Jodhpur & Jaisalmer Tour Packages | Shree Dev Tour And Travel</title>
@@ -45,158 +47,140 @@ const Packages = () => {
         </script>
       </Helmet>
 
-      {/* --- HERO HEADER (SEO Optimized H1) --- */}
-      <header className="bg-slate-950 py-20 px-6 text-center border-b border-slate-800">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Premium <span className="text-blue-500">Rajasthan Tours</span>
-        </h1>
-        <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-          Experience the royalty of Rajasthan with our expert drivers. Book complete itineraries in our luxury <strong>Innova Crysta</strong> or <strong>Force Urbania</strong> for a safe and comfortable journey.
-        </p>
+      {/* --- HERO HEADER (15-Year Expert Persona) --- */}
+      <header className="bg-slate-950 py-20 px-6 text-center border-b border-slate-800 relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-blue-900/10 blur-3xl rounded-full"></div>
+        <div className="relative z-10">
+          <p className="text-blue-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center justify-center gap-2">
+            <CheckCircle size={18} /> 15+ Years of Trust & Local Expertise
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            Discover the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Real Rajasthan</span>
+          </h1>
+          <p className="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed italic border-l-4 border-blue-500 pl-4 text-left md:text-center md:border-l-0 md:pl-0">
+            "खम्मा घणी! I've spent the last 15 years showing travelers the true colors, culture, and hidden gems of Rajasthan.
+            These aren't just standard taxi tours; these are handcrafted experiences from a local who knows every street, sunset point, and story of this royal land."
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-300 font-medium">
+            <span className="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 shadow-lg"><MapPin size={16} className="text-emerald-400" /> Authentic Local Routes</span>
+            <span className="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 shadow-lg"><CheckCircle size={16} className="text-blue-400" /> Hidden Photo Spots</span>
+            <span className="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700 shadow-lg"><CheckCircle size={16} className="text-amber-400" /> Safe & Premium Drivers</span>
+          </div>
+        </div>
       </header>
 
-      {/* --- PACKAGES GRID --- */}
-      <main className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          
-          {/* PACKAGE 1: JODHPUR (COMPETITOR BAIT - Moved to Top) */}
-          <PackageCard 
-            title="Jodhpur Heritage & City Tour"
-            duration="2 Days / 1 Night"
-            price="₹5,500"
-            image="https://images.pexels.com/photos/797824/pexels-photo-797824.jpeg"
-            locations={['Mehrangarh Fort', 'Umaid Bhawan', 'Jaswant Thada', 'Clock Tower']}
-            seoAlt="Jodhpur city tour package including Mehrangarh Fort and Umaid Bhawan taxi"
-            itinerary={[
-              { day: 'Day 1', plan: 'Arrival in Jodhpur. Hotel Check-in. Visit the magnificent Umaid Bhawan Palace Museum and Toorji Ka Jhalra (Stepwell).' },
-              { day: 'Day 2', plan: 'Explore the grand Mehrangarh Fort and Jaswant Thada. Enjoy local street food and shopping at Ghanta Ghar (Clock Tower). Evening Drop-off.' }
-            ]}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-          {/* PACKAGE 2: JAISALMER (HIGH MARGIN & HIGH SEARCH VOL) */}
-          <PackageCard 
-            title="Jaisalmer Desert Safari & Camp"
-            duration="3 Days / 2 Nights"
-            price="₹12,500"
-            image="https://images.pexels.com/photos/12912712/pexels-photo-12912712.jpeg"
-            locations={['Sam Sand Dunes', 'Camel Ride', 'Jeep Safari', 'Golden Fort']}
-            seoAlt="Jaisalmer desert safari tour package with camel ride and Swiss tents"
-            itinerary={[
-              { day: 'Day 1', plan: 'Pickup in Jaisalmer or Jodhpur. Hotel Check-in. Visit the living Jaisalmer Fort (Golden Fort) and beautiful Patwon Ki Haveli. Evening at Gadisar Lake.' },
-              { day: 'Day 2', plan: 'Move to Sam Sand Dunes. Experience thrilling Jeep Safari, evening Camel Ride, Rajasthani cultural folk dance, and dinner. Night stay in Swiss Tents.' },
-              { day: 'Day 3', plan: 'Morning breakfast at the desert camp and transfer to Railway Station/Airport.' }
-            ]}
+        {packagesData.map((pkg) => (
+          <PackageCard
+            key={pkg.id}
+            title={pkg.title}
+            duration={pkg.duration}
+            price={pkg.price}
+            image={pkg.image}
+            locations={pkg.locations}
+            seoAlt={pkg.seoAlt}
+            expertTip={pkg.expertTip}
+            itinerary={pkg.itinerary}
           />
+        ))}
 
-          {/* PACKAGE 3: JAIPUR */}
-          <PackageCard 
-            title="Jaipur Royal Darshan"
-            duration="2 Days / 1 Night"
-            price="₹4,500"
-            image="https://images.pexels.com/photos/11750442/pexels-photo-11750442.jpeg"
-            locations={['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jal Mahal']}
-            seoAlt="Jaipur local sightseeing tour package by premium cab"
-            itinerary={[
-              { day: 'Day 1', plan: 'Pickup from Jaipur Airport/Station. Check-in. Visit City Palace, Jantar Mantar & Hawa Mahal. Evening shopping at Johri Bazar.' },
-              { day: 'Day 2', plan: 'Morning visit to Amber Fort. Stop at Jal Mahal for photography & Nahargarh Fort for sunset views. Drop at Airport/Station.' }
-            ]}
-          />
+      </div>
+      
+      <section className="mt-20"><FAQ /></section>
 
-          {/* PACKAGE 4: THE ULTIMATE COMBO */}
-          <PackageCard 
-            title="Ultimate Rajasthan (Jaipur-Jodhpur-Jaisalmer)"
-            duration="6 Days / 5 Nights"
-            price="₹28,000"
-            image="https://media.istockphoto.com/id/1224021113/photo/indian-cameleers-camel-driver-with-camel-silhouettes-in-dunes-on-sunset-jaisalmer-rajasthan.jpg?s=2048x2048&w=is&k=20&c=7jfwu64-qz1QkDyB24lih3bwbgQYlKfF3ePozOU7shA="
-            locations={['Jaipur', 'Jodhpur', 'Jaisalmer Camp', 'Sightseeing']}
-            seoAlt="Complete Rajasthan tour package covering Jaipur, Jodhpur, and Jaisalmer"
-            itinerary={[
-              { day: 'Day 1 & 2', plan: 'Jaipur Arrival. Explore Amber Fort, Hawa Mahal, City Palace, and Chokhi Dhani.' },
-              { day: 'Day 3', plan: 'Drive to Jodhpur in Innova/Urbania. Visit Mehrangarh Fort & Umaid Bhawan. Night stay in Jodhpur.' },
-              { day: 'Day 4 & 5', plan: 'Drive to Jaisalmer. City tour on Day 4. Day 5 dedicated to Sam Sand Dunes (Camel Ride & Desert Camp).' },
-              { day: 'Day 6', plan: 'Breakfast and drop-off for your return journey.' }
-            ]}
-          />
-
-        </div>
-      </main>
     </div>
+
   );
 };
 
 // --- EXPANDABLE CARD COMPONENT ---
-const PackageCard = ({ title, duration, price, image, locations, itinerary, seoAlt }) => {
+const PackageCard = ({ title, duration, price, image, locations, itinerary, seoAlt, expertTip }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const itineraryId = useId(); // For accessibility
+  const itineraryId = useId();
 
   return (
-    <motion.article 
-      initial={{ opacity: 0, y: 20 }}
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl"
+      viewport={{ once: true, margin: "-50px" }}
+      className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl group hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-500 flex flex-col h-full"
     >
       {/* Image Header */}
-      <div className="h-64 relative bg-slate-900">
-        <img src={image} alt={seoAlt} className="w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-        <div className="absolute bottom-4 left-4">
-          <h2 className="text-2xl font-bold text-white">{title}</h2>
-          <div className="flex items-center gap-4 text-sm text-slate-300 mt-1">
-            <span className="flex items-center gap-1"><Clock size={14} className="text-blue-500"/> {duration}</span>
-            <span className="flex items-center gap-1"><MapPin size={14} className="text-blue-500"/> {locations.length} Stops</span>
+      <div className="h-64 relative bg-slate-900 overflow-hidden">
+        <img src={image} alt={seoAlt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3 leading-tight drop-shadow-md">{title}</h2>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+            <span className="flex items-center gap-1.5 bg-slate-800/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-slate-700 font-medium"><Clock size={16} className="text-blue-400" /> {duration}</span>
+            <span className="flex items-center gap-1.5 bg-slate-800/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-slate-700 font-medium"><MapPin size={16} className="text-emerald-400" /> {locations.length} Sites</span>
           </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex-grow flex flex-col">
+
+        {/* Expert Tip Box */}
+        {expertTip && (
+          <div className="bg-gradient-to-br from-blue-900/30 to-slate-800 border border-blue-500/30 rounded-xl p-5 mb-6 relative mt-2 shadow-inner">
+            <div className="absolute -top-3 left-4 bg-blue-600 px-3 py-0.5 rounded-full text-[10px] md:text-xs font-bold text-white tracking-widest uppercase flex items-center gap-1.5 shadow-md border border-blue-400">
+              <CheckCircle size={12} /> My 15-Year Expert Tip
+            </div>
+            <p className="text-sm text-blue-100/90 italic leading-relaxed pt-1">
+              "{expertTip}"
+            </p>
+          </div>
+        )}
+
         {/* Locations Tags */}
         <div className="flex flex-wrap gap-2 mb-6" aria-label="Locations covered">
           {locations.map((loc, i) => (
-            <span key={i} className="text-xs bg-slate-900 border border-slate-700 text-slate-400 px-3 py-1 rounded-full">
+            <span key={i} className="text-xs font-medium bg-slate-900/80 border border-slate-700/80 text-slate-300 px-3 py-1.5 rounded-full shadow-sm hover:border-slate-500 transition-colors">
               {loc}
             </span>
           ))}
         </div>
 
         {/* Price & Action */}
-        <div className="flex justify-between items-center mb-6 border-b border-slate-700 pb-6">
+        <div className="flex justify-between items-end mb-6 border-b border-slate-700/50 pb-6 mt-auto">
           <div>
-            <p className="text-xs text-slate-500 uppercase font-semibold">Starting From</p>
-            <p className="text-3xl font-bold text-white">{price}</p>
+            <p className="text-sm text-slate-400 uppercase font-bold tracking-wider mb-1">Starting From</p>
+            <p className="text-3xl md:text-4xl font-extrabold text-white">{price}</p>
           </div>
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-controls={itineraryId}
-            className="flex items-center gap-2 text-blue-400 hover:text-white transition font-bold"
+            className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition font-bold text-sm bg-emerald-400/10 hover:bg-emerald-400/20 px-4 py-2.5 rounded-lg border border-emerald-400/20"
           >
-            {isOpen ? 'Hide Itinerary' : 'View Itinerary'} {isOpen ? <ChevronUp size={18}/> : <ChevronDown size={18}/>}
+            {isOpen ? 'Close' : 'View Plan'} {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
         </div>
 
         {/* Expanded Itinerary */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div 
+            <motion.div
               id={itineraryId}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden"
             >
-              <div className="space-y-4 mb-6 bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
+              <div className="space-y-6 mb-6 bg-slate-900/60 p-5 md:p-6 rounded-2xl border border-slate-700/50 relative">
                 {itinerary.map((item, index) => (
-                  <div key={index} className="flex gap-4">
+                  <div key={index} className="flex gap-4 relative z-10 group">
                     <div className="flex flex-col items-center">
-                      <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold text-white shadow-lg">
+                      <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold text-white shadow-[0_0_10px_rgba(37,99,235,0.4)] ring-4 ring-slate-900 group-hover:bg-blue-500 transition-colors">
                         {index + 1}
                       </div>
-                      {index !== itinerary.length - 1 && <div className="w-0.5 h-full bg-slate-700 my-1"></div>}
+                      {index !== itinerary.length - 1 && <div className="w-0.5 h-full bg-slate-700/80 my-2 rounded-full"></div>}
                     </div>
-                    <div>
-                      <h3 className="font-bold text-white text-sm">{item.day}</h3>
+                    <div className="pb-2">
+                      <h3 className="font-bold text-white text-base mb-1.5">{item.day}</h3>
                       <p className="text-slate-400 text-sm leading-relaxed">{item.plan}</p>
                     </div>
                   </div>
@@ -207,13 +191,13 @@ const PackageCard = ({ title, duration, price, image, locations, itinerary, seoA
         </AnimatePresence>
 
         {/* Book Button */}
-        <a 
+        <a
           href={`https://wa.me/918890472581?text=Hi%20Shree%20Dev%20Tour%20And%20Travel,%20I%20am%20interested%20in%20booking%20the%20${encodeURIComponent(title)}%20Package.`}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full bg-blue-600 hover:bg-blue-500 text-white text-center py-4 rounded-xl font-bold transition shadow-lg shadow-blue-600/20 active:scale-95"
+          className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white text-center py-4 rounded-xl font-bold transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 active:scale-[0.98] text-lg"
         >
-          Book This Package
+          <Phone size={20} className="animate-pulse" /> Book This Experience
         </a>
 
       </div>

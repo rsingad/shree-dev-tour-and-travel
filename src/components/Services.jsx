@@ -88,7 +88,7 @@ const Services = () => {
             title="Premium SUV"
             model="Innova Crysta"
             price="₹14 - ₹18"
-            image="https://images.pexels.com/photos/1239228/pexels-photo-1239228.jpeg"
+            image="/innova-crysta.png"
             specs={{ seats: '6-7 Pax', bags: '4 Bags', type: 'Luxury Tour' }}
             isPopular={true}
             accent="from-cyan-500 to-blue-800"
@@ -100,7 +100,7 @@ const Services = () => {
             title="Luxury Mini-Bus"
             model="Force Urbania"
             price="₹24 - ₹28"
-            image="https://images.pexels.com/photos/18029632/pexels-photo-18029632.jpeg"
+            image="/force-urbania.png"
             specs={{ seats: '10-17 Pax', bags: '8 Bags', type: 'Group Travel' }}
             accent="from-amber-600 to-slate-900"
             seoAlt="Force Urbania 12 17 seater taxi in Jodhpur Rajasthan"
@@ -110,7 +110,7 @@ const Services = () => {
             title="Sedan Prime"
             model="Maruti Dzire"
             price="₹10 - ₹11"
-            image="https://images.pexels.com/photos/30648753/pexels-photo-30648753.jpeg"
+            image="/maruti-dzire.png"
             specs={{ seats: '4 Pax', bags: '2 Bags', type: 'Economy / Local' }}
             accent="from-blue-600 to-slate-900"
             seoAlt="Maruti Dzire Etios taxi service in Jodhpur"
@@ -120,7 +120,7 @@ const Services = () => {
             title="Comfort Sedan"
             model="Toyota Etios"
             price="₹10 - ₹11"
-            image="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg"
+            image="/toyota-etios.png"
             specs={{ seats: '4 Pax', bags: '2 Bags', type: 'Outstation' }}
             accent="from-indigo-600 to-slate-900"
             seoAlt="Toyota Etios taxi service in Jodhpur"
@@ -130,7 +130,7 @@ const Services = () => {
             title="Group Traveler"
             model="Tempo Traveller"
             price="₹20 - ₹24"
-            image="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
+            image="/tempo-traveller.png"
             specs={{ seats: '10-14 Pax', bags: '6 Bags', type: 'Group Tour' }}
             accent="from-teal-600 to-slate-900"
             seoAlt="Tempo Traveller on rent in Jodhpur"
@@ -140,7 +140,7 @@ const Services = () => {
             title="Ultra Luxury SUV"
             model="Toyota Fortuner"
             price="₹35 - ₹40"
-            image="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg"
+            image="/toyota-fortuner.png"
             specs={{ seats: '6 Pax', bags: '4 Bags', type: 'VIP Travel' }}
             accent="from-rose-600 to-slate-900"
             seoAlt="Toyota Fortuner on rent in Jodhpur"
